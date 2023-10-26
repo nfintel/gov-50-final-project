@@ -26,3 +26,39 @@ The outcome variable will be polarization, which I will measure as the extent to
 If I observe an increase in the divergence of public support for the death penalty among Democrats and Republicans (ie., an increase in polarization)—that sharply outpaces national trends—in a state after a relevant court ruling, then this will provide support for my hypothesis. Conversely, if I observe no discernible change or a decrease in polarization after a relevant court ruling, then that would provide evidence against my hypothesis.
 
 I plan to use opinion poll data from the General Social Survey (GSS) and/or the Gallup Poll. GSS has data from 1974-2022 for the question “Do you favor or oppose the death penalty for persons convicted of murder?” and Gallup has data from 1953-2022 for the question, “Are you in favor of the death penalty for a person convicted of murder?” I will be able to select data for various states in the years before, during, and after that state’s supreme court issued a ruling on the death penalty and compare it to national trends. 
+
+
+## Milestone 3
+## Sources: https://gssdataexplorer.norc.org/trends and https://bjs.ojp.gov/topics/corrections/capital-punishment and then i just googled number of prisoners executed in 2021 and 2022
+```{r}
+library(tidyverse)
+library(dplyr)
+read_csv("cappun.csv")
+```
+
+```{r}
+library(tidyverse)
+library(dplyr)
+read_csv("cappun.csv")
+
+cappun_plot_1 <- ggplot(data = cappun, mapping = aes(x = Year, y = Number_Executions)) + geom_line(color = "red")
+
+cappun_plot_2 <- ggplot(data = cappun, mapping = aes(x = Year, y = Percent_Support)) + geom_line()
+
+cappun_plot_3 <- ggplot(data = cappun,
+mapping = aes(x = Year, y = Number_Executions)) +
+geom_point() +
+geom_smooth(color = "red") 
+
+cappun_plot_4 <- ggplot(data = cappun,
+mapping = aes(x = Year, y = Percent_Support)) +
+geom_point() +
+geom_smooth(color = "black") 
+  
+
+cappun_plot_1
+cappun_plot_2
+cappun_plot_3
+cappun_plot_4
+```
+
