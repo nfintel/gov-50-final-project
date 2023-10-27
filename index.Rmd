@@ -30,9 +30,9 @@ I plan to use opinion poll data from the General Social Survey (GSS) and/or the 
 
 ## Milestone 3
 
-## Note: I will likely be altering my intial proposal a bit due to difficulties obtaining data for individual states. I plan to speak to a TF about this in more detail soon. In the meantime, I've made two graphs that show how American public opinion on capital punishment has changed over time and two other graphs that illustrate the distribution of executions in the US over time.
+Note: I will likely be altering my intial proposal a bit due to difficulties obtaining data for individual states. I plan to speak to a TF about this in more detail soon. In the meantime, I've made two graphs that show how American public opinion on capital punishment has changed over time and two other graphs that illustrate the distribution of executions in the US over time.
 
-## Sources: https://gssdataexplorer.norc.org/trends for public opinion data,  https://bjs.ojp.gov/topics/corrections/capital-punishment for execution data through 2020, and Amnesty International for data on executions in 2021 and 2022.
+Sources: https://gssdataexplorer.norc.org/trends for public opinion data,  https://bjs.ojp.gov/topics/corrections/capital-punishment for execution data through 2020, and Amnesty International for data on executions in 2021 and 2022.
 
 ```{r}
 library(tidyverse)
