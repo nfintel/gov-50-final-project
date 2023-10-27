@@ -29,7 +29,7 @@ I plan to use opinion poll data from the General Social Survey (GSS) and/or the 
 
 
 ## Milestone 3
-## Sources: https://gssdataexplorer.norc.org/trends and https://bjs.ojp.gov/topics/corrections/capital-punishment and then i just googled number of prisoners executed in 2021 and 2022
+## Sources: https://gssdataexplorer.norc.org/trends for public opinion data,  https://bjs.ojp.gov/topics/corrections/capital-punishment for execution data through 2020, and Amnesty International for data on executions in 2021 and 2022.
 ```{r}
 library(tidyverse)
 library(dplyr)
