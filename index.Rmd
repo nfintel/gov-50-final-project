@@ -38,7 +38,7 @@ read_csv("cappun.csv")
 
 ```{r}
 library(tidyverse)
-library(dplyr)
+
 read_csv("cappun.csv")
 
 cappun_plot_1 <- ggplot(data = cappun, mapping = aes(x = Year, y = Number_Executions)) + geom_line(color = "red") +
