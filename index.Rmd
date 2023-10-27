@@ -29,6 +29,9 @@ I plan to use opinion poll data from the General Social Survey (GSS) and/or the 
 
 
 ## Milestone 3
+
+## Note: I will likely be altering my intial proposal a bit due to difficulties obtaining data for individual states. I plan to speak to a TF about this in more detail soon. In the meantime, I've made two graphs that show how American public opinion on capital punishment has changed over time and two other graphs that illustrate the distribution of executions in the US over time.
+
 ## Sources: https://gssdataexplorer.norc.org/trends for public opinion data,  https://bjs.ojp.gov/topics/corrections/capital-punishment for execution data through 2020, and Amnesty International for data on executions in 2021 and 2022.
 
 ```{r}
@@ -40,7 +43,7 @@ cappun_plot_1 <- ggplot(data = cappun, mapping = aes(x = Year, y = Number_Execut
   labs(x = "Year", y = "Number of Executions", title = "Number of Executions in the United States per Year", caption = "Sources: US Department of Justice & Amnesty International")
 
 cappun_plot_2 <- ggplot(data = cappun, mapping = aes(x = Year, y = Percent_Support)) + geom_line() +
-  labs(x = "Year", y = "Percent in Favor", title = "Percent of Americans in Favor of Capital Punishment for Convicted Murderers by Year", caption = "Source: General Social Survey")
+  labs(x = "Year", y = "Percent in Favor", title = "Percent of Americans who Favor of Capital Punishment for Convicted Murderers by Year", caption = "Source: General Social Survey")
 
 cappun_plot_3 <- ggplot(data = cappun,
 mapping = aes(x = Year, y = Number_Executions)) +
@@ -52,7 +55,7 @@ cappun_plot_4 <- ggplot(data = cappun,
 mapping = aes(x = Year, y = Percent_Support)) +
 geom_point() +
 geom_smooth(color = "black") +
-    labs(x = "Year", y = "Percent in Favor", title = "Percent of Americans in Favor of Capital Punishment for Convicted Murderers by Year", caption = "Source: General Social Survey")
+    labs(x = "Year", y = "Percent in Favor", title = "Percent of Americans who Favor Capital Punishment for Convicted Murderers by Year", caption = "Source: General Social Survey")
   
 
 cappun_plot_1
