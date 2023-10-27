@@ -43,7 +43,7 @@ cappun_plot_1 <- ggplot(data = cappun, mapping = aes(x = Year, y = Number_Execut
   labs(x = "Year", y = "Number of Executions", title = "Number of Executions in the United States per Year", caption = "Sources: US Department of Justice & Amnesty International")
 
 cappun_plot_2 <- ggplot(data = cappun, mapping = aes(x = Year, y = Percent_Support)) + geom_line() +
-  labs(x = "Year", y = "Percent in Favor", title = "Percent of Americans who Favor of Capital Punishment for Convicted Murderers by Year", caption = "Source: General Social Survey")
+  labs(x = "Year", y = "Percent in Favor", title = "Percent of Americans in Favor of Capital Punishment for Homicide by Year", caption = "Source: General Social Survey")
 
 cappun_plot_3 <- ggplot(data = cappun,
 mapping = aes(x = Year, y = Number_Executions)) +
@@ -55,7 +55,7 @@ cappun_plot_4 <- ggplot(data = cappun,
 mapping = aes(x = Year, y = Percent_Support)) +
 geom_point() +
 geom_smooth(color = "black") +
-    labs(x = "Year", y = "Percent in Favor", title = "Percent of Americans who Favor Capital Punishment for Convicted Murderers by Year", caption = "Source: General Social Survey")
+    labs(x = "Year", y = "Percent in Favor", title = "Percent of Americans in Favor of Capital Punishment for Homicide by Year", caption = "Source: General Social Survey")
   
 
 cappun_plot_1
