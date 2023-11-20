@@ -53,7 +53,7 @@ cappun_plot_2
 ```
 
 ```{r}
-cappun_plot_3 <- ggplot(data = cappun3, mapping = aes(x = Year, y = Percent_Support)) + geom_line() +
+cappun_plot_3 <- ggplot(data = cappun, mapping = aes(x = Year, y = Percent_Support)) + geom_line() +
   labs(x = "Year", y = "Percent in Favor", title = "% of Americans in Favor of Capital Punishment for Homicide by Year", caption = "Source: General Social Survey")
 
 cappun_plot_4 <- ggplot(data = cappun,
@@ -68,7 +68,7 @@ cappun_plot_4
 
 
 ```{r}
-cappun_plot_5 <- ggplot(data = cappun3,
+cappun_plot_5 <- ggplot(data = cappun,
 mapping = aes(x = Percent_Support, y = Number_Executions)) +
 geom_point() +
 geom_smooth(color = "Blue") +
@@ -101,7 +101,7 @@ cappun_plot_7
 cor(cappun3$Number_Exonerations, cappun3$Number_Executions)
 ```
 
-##Milestone 4 
+## Milestone 4 
 
 ```{r}
 library(tidyverse)
@@ -115,5 +115,5 @@ coef(cappun_table)
   
   knitr::kable(cappun_table)
 ```
-##Analysis
+## Analysis
 The intercept is 13.434, which means that when the number of exonerations is zero, then the average number of executions will be approximately 13.4 (holding all other variables constant). The coefficient for the number of exonerations in 3.541, which means that, holding all other variables constant, a one-unit increase in the number of exonerations (i.e., each additional exoneration) is associated with a 3.5-unit increase in executions (i.e., 3.5 additional executions). This finding was a bit surprising to me, as I had hypothesized that exonerations would work to delegitimize the institution of capital punishment by pointing out its flaws. Instead, this data seems to suggest it may actually legitimize capital punishment by showing that mistakes can be amended. 
