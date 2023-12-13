@@ -8,26 +8,6 @@ output:
 ---
 
 
-
-## Milestone 4 
-
-```{r}
-library(tidyverse)
-library(dplyr)
-
-cappun_table <- read_csv("cappun3.csv")
-  lm(Number_Executions ~ Number_Exonerations, data = cappun3)
-
-library(broom)
-coef(cappun_table)
-  
-  knitr::kable(cappun_table)
-```
-## Analysis
-The intercept is 13.434, which means that when the number of exonerations is zero, then the average number of executions will be approximately 13.4 (holding all other variables constant). The coefficient for the number of exonerations in 3.541, which means that, holding all other variables constant, a one-unit increase in the number of exonerations (i.e., each additional exoneration) is associated with a 3.5-unit increase in executions (i.e., 3.5 additional executions). 
-
-
-
 ## Introduction
 In Furman v. Georgia (1972), the United States Supreme Court ruled that capital punishment, in its current form, was being applied in an arbitrary, capricious, and racially biased manner. Such application of capital punishment, according to the Court, constituted a "cruel and unusual punishment," and therefore violated the 8th and 14th amendments of the US Constitution. In effect, the Furman ruling placed an indefinite moratorium on executions until states and the federal government could alter their capital statutes in a manner that no longer violated the Constitution. Four years later, in Gregg v. Georgia (1976), the Court ruled that Georgia that a handful of states' revised statutes conformed to the standards required by Furman, thus lifting the moratorium on executions and ushering in what scholars has dubbed "the modern era of the American death penalty." The reinstatement of capital punishment in the Untied States was a historic anomaly, as the majority of America's peer nations during this time period were moving to permanently abolish the death penalty. Indeed, today, the Untied States is the world's only "western" democracy to retain its death penalty and to actively execute its citizens. 
 
@@ -51,8 +31,12 @@ Finally, Carol and Jordan Steiker () explain that ____, the US became the "first
 H3: The number of executions increases as the number of exonerations increases.
 
 
-## Data
+## Data & Research Design
 
+
+
+
+I then loaded this file into RStudio, named it "deathpenalty," and presented my dataset in a table. 
 
 ```{r}
 library(tidyverse)
@@ -66,6 +50,7 @@ knitr::kable(deathpenalty)
 
 ```
 
+To visualize key trends in my dataset, I first plotted the number of executions per year, both as a line graph and as a scatter plot with a smoothed trend line.
 
 ```{r}
 dp_plot_1 <- ggplot(data = deathpenalty,
@@ -74,7 +59,7 @@ dp_plot_1 <- ggplot(data = deathpenalty,
   labs(x = "Year", 
        y = "Number of Executions", 
        title = "Number of Executions in the United States per Year", 
-       caption = "Sources: US Department of Justice")
+       caption = "Source: US Department of Justice")
 
 dp_plot_2 <- ggplot(data = deathpenalty,
   mapping = aes(x = Year, y = Number_Executions)) + 
@@ -82,26 +67,16 @@ dp_plot_2 <- ggplot(data = deathpenalty,
   labs(x = "Year", 
        y = "Number of Executions", 
        title = "Number of Executions in the United States per Year", 
-       caption = "Sources: US Department of Justice")
+       caption = "Source: US Department of Justice")
 
-dp_plot_3 <- ggplot(data = deathpenalty,
-  mapping = aes(x = Year, y = Number_Exonerations)) + 
-  geom_line(color = "forestgreen") + 
-  labs(x = "Year", 
-       y = "Number of Exonerations", 
-       title = "Number of Exonerations in the United States per Year", 
-       caption = "Sources: US Department of Justice")
+dp_plot_1
+dp_plot_2
+```
 
-dp_plot_4 <- ggplot(data = deathpenalty,
-  mapping = aes(x = Year, y = Number_Exonerations)) + 
-  geom_point() + 
-  geom_smooth(color = "forestgreen") + 
-  labs(x = "Year", 
-       y = "Number of Exonerations", 
-       title = "Number of Exonerations in the United States per Year", 
-       caption = "Sources: US Department of Justice")
+Then, I plotted the key explanatory variable for each of my three hypotheses over time as both a line graph and a scatter plot with a smoothed trend line. These variables are percentage of Americans in favor of capital punishment, national homicide rate, and number of exonerations, respectively.
 
-dp_plot_5 <- ggplot(data = deathpenalty[complete.cases(deathpenalty$Percent_Support),],
+```{r}
+dp_plot_3 <- ggplot(data = deathpenalty[complete.cases(deathpenalty$Percent_Support),],
   mapping = aes(x = Year, y = Percent_Support)) + 
   geom_line() +
   labs(x = "Year", 
@@ -110,7 +85,7 @@ dp_plot_5 <- ggplot(data = deathpenalty[complete.cases(deathpenalty$Percent_Supp
        caption = "Source: General Social Survey") 
   
 
-dp_plot_6 <- ggplot(data = deathpenalty,  
+dp_plot_4 <- ggplot(data = deathpenalty,  
   mapping = aes(x = Year, y = Percent_Support)) + 
   geom_point() + 
   geom_smooth(color = "black") + 
@@ -119,15 +94,51 @@ dp_plot_6 <- ggplot(data = deathpenalty,
        title = "% of Americans in Favor of Capital Punishment for Homicide by Year", 
        caption = "Source: General Social Survey")
 
+dp_plot_5 <- ggplot(data = deathpenalty,
+  mapping = aes(x = Year, y = Homicide_Rate)) + 
+  geom_line(color = "darkorchid4") + 
+  labs(x = "Year", 
+       y = "Homicide Rate", 
+       title = "Homicide Rate in the United States per Year", 
+       caption = "Source: Federal Bureau of Investigations")
 
+dp_plot_6 <- ggplot(data = deathpenalty,
+  mapping = aes(x = Year, y = Homicide_Rate)) + 
+  geom_point() +
+  geom_smooth(color = "darkorchid4") + 
+  labs(x = "Year", 
+       y = "Homicide Rate", 
+       title = "Homicide Rate in the United States per Year", 
+       caption = "Source: Federal Bureau of Investigations")
 
-dp_plot_1
-dp_plot_2
+dp_plot_7 <- ggplot(data = deathpenalty,
+  mapping = aes(x = Year, y = Number_Exonerations)) + 
+  geom_line(color = "forestgreen") + 
+  labs(x = "Year", 
+       y = "Number of Exonerations", 
+       title = "Number of Exonerations in the United States per Year", 
+       caption = "Source: US Department of Justice")
+
+dp_plot_8 <- ggplot(data = deathpenalty,
+  mapping = aes(x = Year, y = Number_Exonerations)) + 
+  geom_point() + 
+  geom_smooth(color = "forestgreen") + 
+  labs(x = "Year", 
+       y = "Number of Exonerations", 
+       title = "Number of Exonerations in the United States per Year", 
+       caption = "Source: US Department of Justice")
+
 dp_plot_3
 dp_plot_4
 dp_plot_5
 dp_plot_6
+dp_plot_7
+dp_plot_8
 ```
+
+
+##Results
+
 
 
 
@@ -169,50 +180,13 @@ lm(Percent_Support ~ Homicide_Rate, data = deathpenalty)
 
 
 
-```{r}
-
-lm_support_1 <- lm(Percent_Support ~ Homicide_Rate,
-              data = deathpenalty) 
-
-summary(lm_support_1)
-modelsummary::modelsummary(lm_support_1,
-                           statistic = c("s.e. = {std.error}",
-                                         "p = {p.value}"),
-                           gof_map = c("nobs", "r.squared", "adj.r.squared"))
-
-
-
-
-lm_support_2 <- lm(Percent_Support ~ Fin_Dissatisfaction,
-              data = deathpenalty) 
-
-summary(lm_support_2)
-modelsummary::modelsummary(lm_support_2,
-                           statistic = c("s.e. = {std.error}",
-                                         "p = {p.value}"),
-                           gof_map = c("nobs", "r.squared", "adj.r.squared"))
-
-
-
-
-
-lm_support_3 <- lm(Percent_Support ~ Homicide_Rate + Fin_Dissatisfaction,
-              data = deathpenalty) 
-
-summary(lm_support_3)
-modelsummary::modelsummary(lm_support_3,
-                           statistic = c("s.e. = {std.error}",
-                                         "p = {p.value}"),
-                           gof_map = c("nobs", "r.squared", "adj.r.squared"))
-```
-
 
 ```{r}
 lm_executions_1 <- lm(Number_Executions ~ Homicide_Rate,
               data = deathpenalty) 
 
 summary(lm_executions_1)
-modelsummary::modelsummary(lm_executions_1,
+modelsummary::modelsummary(list(Regression = lm_executions_1),
                            statistic = c("s.e. = {std.error}",
                                          "p = {p.value}"),
                            gof_map = c("nobs", "r.squared", "adj.r.squared"))
@@ -224,7 +198,7 @@ lm_executions_2 <- lm(Number_Executions ~ Percent_Support,
               data = deathpenalty) 
 
 summary(lm_executions_2)
-modelsummary::modelsummary(lm_executions_2,
+modelsummary::modelsummary(list(Regression = lm_executions_2),
                            statistic = c("s.e. = {std.error}",
                                          "p = {p.value}"),
                            gof_map = c("nobs", "r.squared", "adj.r.squared"))
@@ -237,7 +211,7 @@ lm_executions_3 <- lm(Number_Executions ~ Homicide_Rate + Percent_Support,
               data = deathpenalty) 
 
 summary(lm_executions_3)
-modelsummary::modelsummary(lm_executions_3,
+modelsummary::modelsummary(list(Regression = lm_executions_3),
                            statistic = c("s.e. = {std.error}",
                                          "p = {p.value}"),
                            gof_map = c("nobs", "r.squared", "adj.r.squared"))
@@ -249,7 +223,7 @@ lm_executions_4 <- lm(Number_Executions ~ Number_Exonerations,
               data = deathpenalty) 
 
 summary(lm_executions_4)
-modelsummary::modelsummary(lm_executions_4,
+modelsummary::modelsummary(list(Regression = lm_executions_4),
                            statistic = c("s.e. = {std.error}",
                                          "p = {p.value}"),
                            gof_map = c("nobs", "r.squared", "adj.r.squared"))
@@ -261,16 +235,75 @@ lm_executions_5 <- lm(Number_Executions ~ Number_Exonerations_Lag,
               data = deathpenalty) 
 
 summary(lm_executions_5)
-modelsummary::modelsummary(lm_executions_5,
+modelsummary::modelsummary(list(Regression = lm_executions_5),
+                           statistic = c("s.e. = {std.error}",
+                                         "p = {p.value}"),
+                           gof_map = c("nobs", "r.squared", "adj.r.squared"))
+
+```
+
+For a bit of secondary analysis, I decided to investigate potential factors or conditions that impact public support for capital punishment. First, to explore the relationship between the homicide rate and public support for the death penalty, I ran a regression using "Percent_Support" as the response variable and "Homicide_Rate" as the explanatory variable and plotted these two variables on a scatter plot with a smoothed trend line. 
+
+```{r}
+lm_support_1 <- lm(Percent_Support ~ Homicide_Rate,
+              data = deathpenalty) 
+
+summary(lm_support_1)
+modelsummary::modelsummary(list(Regression = lm_support_1),
+                           statistic = c("s.e. = {std.error}",
+                                         "p = {p.value}"),
+                           gof_map = c("nobs", "r.squared", "adj.r.squared"))
+
+support_plot_1 <- ggplot(data = deathpenalty,
+  mapping = aes(x = Homicide_Rate, y = Percent_Support)) + 
+  geom_point() + geom_smooth(color = "black") + 
+  labs(x = "Homicide Rate", 
+       y = "Percent in Favor", 
+       title = "Percent in Favor vs. Homicide Rate", 
+       caption = "Sources: General Social Survey & US Department of Justice")
+
+support_plot_1
+```
+According to this regression, the intercept is 56.884, which means that — all else being constant — when the homicide rate is 0,  public support for capital punishment is 56.884%. The coefficient for homicide rate is 1.311, which means that — all else being held constant — for each unit (percentage point) the homicide rate increases, public support for capital punishment increases by 1.311 units (percentage points). This relationship is statistically significant, as the p-value is under 0.05.
+
+
+Then, to explore the relationship between financial dissatisfaction and public support for the death penalty, I ran a regression using "Percent_Support" as the response variable and "Fin_Dissatisfaction" as the explanatory variable. I also plotted these two variables on a scatter plot with a smoothed trend line. 
+
+```{r}
+lm_support_2 <- lm(Percent_Support ~ Fin_Dissatisfaction,
+              data = deathpenalty) 
+
+summary(lm_support_2)
+modelsummary::modelsummary(list(Regression = lm_support_2),
+                           statistic = c("s.e. = {std.error}",
+                                         "p = {p.value}"),
+                           gof_map = c("nobs", "r.squared", "adj.r.squared"))
+
+support_plot_2 <- ggplot(data = deathpenalty,
+  mapping = aes(x = Fin_Dissatisfaction, y = Percent_Support)) + 
+  geom_point() + geom_smooth(color = "black") + 
+  labs(x = "Financial Dissatisfaction", 
+       y = "Percent in Favor", 
+       title = "Percent in Favor vs. Financial Dissatisfaction", 
+       caption = "Sources: General Social Survey & US Department of Justice")
+
+support_plot_2
+```
+According to this regression, the intercept is 61.167, which means that — all else being constant — when the homicide rate is 0,  public support for capital punishment is 61.167%. The coefficient for homicide rate is 0.223, which means that — all else being held constant — for each unit (FIGURE OUT UNIT) financial dissatisfaction increases, public support for capital punishment increases by 0.223 units (percentage points). However, this relationship is NOT statistically significant, as the p-value is well above 0.05.
+
+
+Finally, I ran a multiple regression using Percent_Support as the response variable and "Homicide_Rate" and "Fin_Dissatisfaction" as the explanatory variables.
+
+```{r}
+lm_support_3 <- lm(Percent_Support ~ Homicide_Rate + Fin_Dissatisfaction,
+              data = deathpenalty) 
+
+summary(lm_support_3)
+modelsummary::modelsummary(list(Regression = lm_support_3),
                            statistic = c("s.e. = {std.error}",
                                          "p = {p.value}"),
                            gof_map = c("nobs", "r.squared", "adj.r.squared"))
 ```
+In this multiple regression, the relationship between the homicide rate and public support remains statistically significant and the relationship between financial dissatisfaction and public support remains not statistically significant. However, 
 
-
-```{r}
-
-
-
-```
 
