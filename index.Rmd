@@ -1,7 +1,7 @@
 ---
 title: "Gov 50 Final Project"
 author: "Nicole Fintel"
-description: "My final project"
+description: "Exploring the impacts of public opinion, homicide rate, and death row exonerations on the number of annual executions in the United States"
 output:
   distill::distill_article:
     self_contained: false
@@ -137,7 +137,7 @@ dp_plot_8
 ```
 
 
-##Results
+## Results
 
 
 
@@ -242,6 +242,8 @@ modelsummary::modelsummary(list(Regression = lm_executions_5),
 
 ```
 
+## Secondary Analysis
+
 For a bit of secondary analysis, I decided to investigate potential factors or conditions that impact public support for capital punishment. First, to explore the relationship between the homicide rate and public support for the death penalty, I ran a regression using "Percent_Support" as the response variable and "Homicide_Rate" as the explanatory variable and plotted these two variables on a scatter plot with a smoothed trend line. 
 
 ```{r}
@@ -305,5 +307,42 @@ modelsummary::modelsummary(list(Regression = lm_support_3),
                            gof_map = c("nobs", "r.squared", "adj.r.squared"))
 ```
 In this multiple regression, the relationship between the homicide rate and public support remains statistically significant and the relationship between the rate of financial dissatisfaction and public support remains not statistically significant. However, 
+
+
+## Conclusion
+
+
+
+
+## Works Cited
+Data:
+
+Bureau of Justice Statistics. (2011). Homicide Trends In The United States. U.S. Department of
+ 	Justice. Data accessed using the Internet Archive’s Wayback Machine,
+ 	https://web.archive.org/web/20110727134213/http://bjs.ojp.usdoj.gov/content/homicide/tables/totalstab.cfm
+
+Crime Data Explorer. (2023). Trend of Homicide from 1985 to 2022. Federal Bureau of Investigations.
+  https://cde.ucr.cjis.gov/LATEST/webapp/#/pages/explorer/crime/crime-trend 
+
+Davern, Michael et. al., National Opinion Research Center at the University of Chicago.(2023).
+  General Social Survey 1972-2022. Sponsored by National Science Foundation. Data
+  accessed from the GSS Data Explorer website at gssdataexplorer.norc.org.
+
+Snell, Tracy L., U.S. Department of Justice. (2023). Prisoners Executed. Bureau of Justice
+  Statistics. https://bjs.ojp.gov/library/publications/prisoners-executed.
+  
+  
+  
+Academic Literature:
+
+Steiker, Carol S., and Jordan M. Steiker. Courting Death: The Supreme Court and Capital
+  Punishment. Cambridge, MA: The Belknap Press of Harvard University Press, 2016.
+
+Steiker, Carol S., and Jordan M. Steiker. “Entrenchment and/or Destabilization? Reflections on
+  (Another) Two Decades of Constitutional Regulation of Capital Punishment.” Law and
+  Inequality: A Journal of Theory and Practice 30, no. 2 (August 10, 2012).
+
+Steiker, Carol S., and Jordan M. Steiker. “Sober Second Thoughts: Reflections on Two Decades
+  of Constitutional Regulation of Capital Punishment.” Harvard Law Review 109, no. 2 (1995): 355–438.
 
 
