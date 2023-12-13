@@ -17,9 +17,9 @@ To this end, I ask the following research question:
 
 
 
-The corpus of social science literature on capital punishment emphasizes that, in most democratic nations, public opinion plays a limited role in governments' decision to abolish the death penalty. However, these scholars note that it is unwise the assume these trends will hold true in the Unites States, as American democracy has a number of idiosyncratic features that change the calculus. These features include (but are not limited to) popularly elected prosecutors and judges, the frequent use of referenda and ballot initiatives,  Ultimately, ____. Nonetheless, the American states that have previously abolished the death penalty managed to do so in spite of public opinion, but because of it. Guided by this literature, I have formulated my first hypothesis:
+The corpus of social science literature on capital punishment emphasizes that, in most democratic nations, public opinion plays a limited role in governments' decision to abolish the death penalty. However, these scholars note that it is unwise the assume these trends will hold true in the Unites States, as American democracy has a number of idiosyncratic features that change the calculus. These features include (but are not limited to) popularly elected prosecutors and judges, the frequent use of referenda and ballot initiatives, _____(citation). Ultimately, ____. Guided by this literature, I have formulated my first hypothesis:
 
-H1: Public support for capital punishment has no impact on the number of executions.
+H1: Public support for capital punishment increases the number of executions.
 
 
 Additionally, ___ [crime rate] As such, I've developed a second hypothesis:
@@ -32,7 +32,11 @@ H3: The number of executions increases as the number of exonerations increases.
 
 
 ## Data & Research Design
+My data does not come from a single source, as I was unable to find a dataset that contained all (or even most) of the variables I was interested in analyzing. Instead, I compiled data from four different datasets into a single excel spreadsheet, which I then converted to a .csv file. My data on the number of annual executions comes from the U.S. Department of Justice's Bureau of Justice Statistics (BJS). The BJS database contained data for the period 1977-2022, in a dataset entitled "Prisoners Executed." Due to the Furman v. Georgia ruling, no executions were carried out between 1972-1976, so I was able to _____ in my Excel spreadsheet. For data on the annual national homicide rate, I used 
 
+
+
+The BJS website no longer publicly displays homicide rdata for years prior to 1985, so in order to find this information, I searched the Internet Archive's Wayback Machine. There, I located an archived dataset published by 
 
 
 
@@ -152,16 +156,11 @@ geom_smooth(color = "Blue") +
 
 
 
-dp_plot_8 <- ggplot(data = deathpenalty,
-mapping = aes(x = Percent_Support, y = Number_Executions_Lag)) +
-geom_point() +
-geom_smooth(color = "Blue") +
-  labs(x = "Percent in Favor, Year Prior", y = "Number of Executions", title = "Number of Executions vs. Support for Capital Punishment (Lag)", caption = "Sources: General Social Survey & US Department of Justice")
 
 dp_plot_7
-dp_plot_8
+
 cor(deathpenalty$Percent_Support, deathpenalty$Number_Executions, use = 'complete.obs')
-cor(deathpenalty$Percent_Support, deathpenalty$Number_Executions_Lag, use = 'complete.obs')
+
 
 ```
 
@@ -169,12 +168,8 @@ cor(deathpenalty$Percent_Support, deathpenalty$Number_Executions_Lag, use = 'com
 
 ```{r}
 lm(Number_Executions ~ Percent_Support, data = deathpenalty)
-lm(Number_Executions_Lag ~ Percent_Support, data = deathpenalty)
-lm(Number_Executions ~ Percent_Support_Lag, data = deathpenalty)
 
 lm(Percent_Support ~ Homicide_Rate, data = deathpenalty)
-
-
 ```
 
 
@@ -230,17 +225,7 @@ modelsummary::modelsummary(list(Regression = lm_executions_4),
 ```
 
 
-```{r}
-lm_executions_5 <- lm(Number_Executions ~ Number_Exonerations_Lag,
-              data = deathpenalty) 
 
-summary(lm_executions_5)
-modelsummary::modelsummary(list(Regression = lm_executions_5),
-                           statistic = c("s.e. = {std.error}",
-                                         "p = {p.value}"),
-                           gof_map = c("nobs", "r.squared", "adj.r.squared"))
-
-```
 
 ## Secondary Analysis
 
@@ -306,8 +291,7 @@ modelsummary::modelsummary(list(Regression = lm_support_3),
                                          "p = {p.value}"),
                            gof_map = c("nobs", "r.squared", "adj.r.squared"))
 ```
-In this multiple regression, the relationship between the homicide rate and public support remains statistically significant and the relationship between the rate of financial dissatisfaction and public support remains not statistically significant. However, 
-
+In this multiple regression, the relationship between the homicide rate and public support remains statistically significant and the relationship between the rate of financial dissatisfaction and public support remains not statistically significant. However, compared to the __ regressions, the coefficient and the standard error for homicide rate increased slightly, and its p-value decreased. ___
 
 ## Conclusion
 
