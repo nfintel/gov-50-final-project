@@ -11,7 +11,7 @@ output:
 ## Introduction
 In Furman v. Georgia (1972), the United States Supreme Court ruled that capital punishment, in its current form, was being applied in an arbitrary, capricious, and racially biased manner. Such application of capital punishment, according to the Court, constituted a "cruel and unusual punishment," and therefore violated the 8th and 14th amendments of the US Constitution. In effect, the Furman ruling placed an indefinite moratorium on executions until states and the federal government could alter their capital statutes in a manner that no longer violated the Constitution. Four years later, in Gregg v. Georgia (1976), the Court ruled that Georgia that a handful of states' revised statutes conformed to the standards required by Furman, thus lifting the moratorium on executions and ushering in what scholars has dubbed "the modern era of the American death penalty." The reinstatement of capital punishment in the Untied States was a historic anomaly, as the majority of America's peer nations during this time period were moving to permanently abolish the death penalty. Indeed, today, the Untied States is the world's only "western" democracy to retain its death penalty and to actively execute its citizens. 
 
-Both today and in the years preceding Furman v. Georgia, death penalty abolitionists and anti-death penalty activists have pursued a "moratorium strategy," where they attempt to get state governments and the federal governments to place a moratorium on executions, or at least minimize the annual number of executions. As explained by ___() lowering execution rates is often the first step toward permanent abolition of capital punishment, as was the case in ___. Some scholars believe that that, by substantially lowering the number of annual executions, permanent death penalty abolition in the United States will become more feasible. However, there is currently a dearth of research on the factors/conditions that impact the number of executions the United States carries out in a given year. My project aims to begin to fill this gap in research. This research is important because it may help activists better focus their efforts on those factors or conditions that decrease the number of annual executions.
+Both today and in the years preceding Furman v. Georgia, death penalty abolitionists and anti-death penalty activists have pursued a "moratorium strategy," where they attempt to get state governments and the federal governments to place a moratorium on executions, or at least minimize the annual number of executions. As explained by ___ () lowering execution rates is often the first step toward permanent abolition of capital punishment, as was the case in ___. Some scholars believe that that, by substantially lowering the number of annual executions, permanent death penalty abolition in the United States will become more feasible. However, there is currently a dearth of research on the factors/conditions that impact the number of executions the United States carries out in a given year. My project aims to begin to fill this gap in research. This research is important because it may help activists better focus their efforts on those factors or conditions that decrease the number of annual executions.
 
 To this end, I ask the following research question:
 
@@ -38,6 +38,24 @@ My data does not come from a single source, as I was unable to find a dataset th
 
 The BJS website no longer publicly displays homicide rdata for years prior to 1985, so in order to find this information, I searched the Internet Archive's Wayback Machine. There, I located an archived dataset published by 
 
+
+| Name                   | Description                               
+|------------------------|--------------------------------------------------------------------
+| `Year`                 | Year ___ ?
+| `Number_Executions`    | Number of prisoners executed in the United States
+| `Number_Exonerations`  | Number of death row exonerations
+| `Homicide_Rate`        | National homicide rate
+| `Fin_Dissatisfaction`  | % of Americans are dissatified with their overall financial situation
+
+I included a few variables that I do not use in this report, but that may yield fruitful inside if analyzed in future research. The data for each of these variables also came from the General Social Survey dataset. Below are the variables and a brief description of each:
+
+| Name                          | Description                               
+|-------------------------------|--------------------------------------------------------------------
+| `Pro_Prayer_Schools`          | % of Americans who support Christian prayer in public schools
+| `Ban_IRM`                     | % of Americans who support a ban on interracial marriage
+| `Insufficient_Spending_CR`.   | % of Americans who believe 
+| `Distrust_SC`                 | % of Americans who distrust the Supreme Court to do the right thing
+| `Distrust_Congress`           | % of Americans who distrust Congress to do the right thing
 
 
 I then loaded this file into RStudio, named it "deathpenalty," and presented my dataset in a table. 
