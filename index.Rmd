@@ -272,18 +272,21 @@ modelsummary::modelsummary(list(Regression = lm_dp_4),
 For a bit of secondary analysis, I decided to investigate potential factors or conditions that impact public support for capital punishment. First, to explore the relationship between the homicide rate and public support for the death penalty, I ran a regression using "Percent_Support" as the response variable and "Homicide_Rate" as the explanatory variable and plotted these two variables on a scatter plot with a smoothed trend line. 
 
 ```{r}
+varnames5 <- c("(Intercept)" = "Intercept",
+               "Homicide_Rate" = "Homicide Rate")
+
 lm_support_1 <- lm(Percent_Support ~ Homicide_Rate,
               data = deathpenalty) 
-
 summary(lm_support_1)
 modelsummary::modelsummary(list(Regression = lm_support_1),
                            statistic = c("s.e. = {std.error}",
                                          "p = {p.value}"),
-                           gof_map = c("nobs", "r.squared", "adj.r.squared"))
+                           gof_map = c("nobs", "r.squared", "adj.r.squared"),
+                           coef_map = varnames5)
 
 support_plot_1 <- ggplot(data = deathpenalty,
   mapping = aes(x = Homicide_Rate, y = Percent_Support)) + 
-  geom_point() + geom_smooth(color = "black") + 
+  geom_point() + geom_smooth(color = "darkorchid4") + 
   labs(x = "Homicide Rate", 
        y = "Percent in Favor", 
        title = "Percent in Favor vs. Homicide Rate", 
@@ -297,18 +300,21 @@ According to this regression, the intercept is 56.884, which means that — all 
 Then, to explore the relationship between the rate of financial dissatisfaction and public support for the death penalty, I ran a regression using "Percent_Support" as the response variable and "Fin_Dissatisfaction" as the explanatory variable. I also plotted these two variables on a scatter plot with a smoothed trend line. 
 
 ```{r}
+varnames6 <- c("(Intercept)" = "Intercept",
+               "Fin_Dissatisfaction" = "Financial Dissatisfaction")
+
 lm_support_2 <- lm(Percent_Support ~ Fin_Dissatisfaction,
               data = deathpenalty) 
-
 summary(lm_support_2)
 modelsummary::modelsummary(list(Regression = lm_support_2),
                            statistic = c("s.e. = {std.error}",
                                          "p = {p.value}"),
-                           gof_map = c("nobs", "r.squared", "adj.r.squared"))
+                           gof_map = c("nobs", "r.squared", "adj.r.squared"),
+                           coef_map = varnames6)
 
 support_plot_2 <- ggplot(data = deathpenalty,
   mapping = aes(x = Fin_Dissatisfaction, y = Percent_Support)) + 
-  geom_point() + geom_smooth(color = "black") + 
+  geom_point() + geom_smooth(color = "blue") + 
   labs(x = "Financial Dissatisfaction", 
        y = "Percent in Favor", 
        title = "Percent in Favor vs. Financial Dissatisfaction", 
@@ -334,34 +340,45 @@ modelsummary::modelsummary(list(Regression = lm_support_3),
 In this multiple regression, the relationship between the homicide rate and public support remains statistically significant and the relationship between the rate of financial dissatisfaction and public support remains not statistically significant. However, compared to the __ regressions, the coefficient and the standard error for homicide rate increased slightly, and its p-value decreased. ___
 
 ## Conclusion
+Ultimately, my analyses provide support for H1 (), but not for H2 () or H().
+
+For H1, my findings suggest that
+
+For H2, my findings show a statistically significant relationship between the homicide rate and the number of executions. However, contrary to my hypothesis, this relationship/correlation is negative. In other words, as the homicide rate increases, the number of executions decrease, and as the homicide rate decreases, the number of executions increase. This finding was particularly surprising to me and certainly warrants further research. One potential explanation may be reverse causality. Though still widely debated, some scholars maintain that capital punishment/executions act as a deterrent to violent crime. Further analyses, then, should investigate the relationship between these two variables using the number of executions as the explanatory variable and the homicide rate as the response variable. 
+
+For H3, my findings show a statistically significant relationship between the number of exonerations and the number of executions.
+
 
 
 
 
 ## Works Cited
-Data:
+__Data:__
 
-Bureau of Justice Statistics. (2011). Homicide Trends In The United States. U.S. Department of
+Bureau of Justice Statistics. (2011). "Homicide Trends In The United States." U.S. Department of
  	Justice. Data accessed using the Internet Archive’s Wayback Machine,
  	https://web.archive.org/web/20110727134213/http://bjs.ojp.usdoj.gov/content/homicide/tables/totalstab.cfm
 
-Crime Data Explorer. (2023). Trend of Homicide from 1985 to 2022. Federal Bureau of Investigations.
+Crime Data Explorer. (2023). "Trend of Homicide from 1985 to 2022." Federal Bureau of Investigations.
   https://cde.ucr.cjis.gov/LATEST/webapp/#/pages/explorer/crime/crime-trend 
 
-Davern, Michael et. al., National Opinion Research Center at the University of Chicago.(2023).
-  General Social Survey 1972-2022. Sponsored by National Science Foundation. Data
+Davern, Michael et. al., National Opinion Research Center at the University of Chicago. (2023).
+  "General Social Survey 1972-2022." Sponsored by National Science Foundation. Data
   accessed from the GSS Data Explorer website at gssdataexplorer.norc.org.
+  
+Death Penalty Information Center. (2023). Innocence Database.
+  https://deathpenaltyinfo.org/database/innocence
 
-Snell, Tracy L., U.S. Department of Justice. (2023). Prisoners Executed. Bureau of Justice
+Snell, Tracy L., U.S. Department of Justice. (2023). "Prisoners Executed." Bureau of Justice
   Statistics. https://bjs.ojp.gov/library/publications/prisoners-executed.
   
-  Death Penalty Information Center
-  
-  
-Academic Literature:
 
-Steiker, Carol S., and Jordan M. Steiker. Courting Death: The Supreme Court and Capital
-  Punishment. Cambridge, MA: The Belknap Press of Harvard University Press, 2016.
+  
+  
+__Academic Literature:__
+
+Steiker, Carol S., and Jordan M. Steiker. "Courting Death: The Supreme Court and Capital
+  Punishment." Cambridge, MA: The Belknap Press of Harvard University Press, 2016.
 
 Steiker, Carol S., and Jordan M. Steiker. “Entrenchment and/or Destabilization? Reflections on
   (Another) Two Decades of Constitutional Regulation of Capital Punishment.” Law and

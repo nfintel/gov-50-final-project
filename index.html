@@ -4108,9 +4108,11 @@ R2 Adj.
 <p>For a bit of secondary analysis, I decided to investigate potential factors or conditions that impact public support for capital punishment. First, to explore the relationship between the homicide rate and public support for the death penalty, I ran a regression using “Percent_Support” as the response variable and “Homicide_Rate” as the explanatory variable and plotted these two variables on a scatter plot with a smoothed trend line.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>lm_support_1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>Percent_Support</span> <span class='op'>~</span> <span class='va'>Homicide_Rate</span>,</span>
-<span>              data <span class='op'>=</span> <span class='va'>deathpenalty</span><span class='op'>)</span> </span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>varnames5</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"(Intercept)"</span> <span class='op'>=</span> <span class='st'>"Intercept"</span>,</span>
+<span>               <span class='st'>"Homicide_Rate"</span> <span class='op'>=</span> <span class='st'>"Homicide Rate"</span><span class='op'>)</span></span>
 <span></span>
+<span><span class='va'>lm_support_1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>Percent_Support</span> <span class='op'>~</span> <span class='va'>Homicide_Rate</span>,</span>
+<span>              data <span class='op'>=</span> <span class='va'>deathpenalty</span><span class='op'>)</span> </span>
 <span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>lm_support_1</span><span class='op'>)</span></span></code></pre>
 </div>
 <pre><code>
@@ -4136,7 +4138,8 @@ F-statistic: 5.836 on 1 and 32 DF,  p-value: 0.02159</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'>modelsummary</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/modelsummary/man/modelsummary.html'>modelsummary</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>Regression <span class='op'>=</span> <span class='va'>lm_support_1</span><span class='op'>)</span>,</span>
 <span>                           statistic <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"s.e. = {std.error}"</span>,</span>
 <span>                                         <span class='st'>"p = {p.value}"</span><span class='op'>)</span>,</span>
-<span>                           gof_map <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"nobs"</span>, <span class='st'>"r.squared"</span>, <span class='st'>"adj.r.squared"</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
+<span>                           gof_map <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"nobs"</span>, <span class='st'>"r.squared"</span>, <span class='st'>"adj.r.squared"</span><span class='op'>)</span>,</span>
+<span>                           coef_map <span class='op'>=</span> <span class='va'>varnames5</span><span class='op'>)</span></span></code></pre>
 </div>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
@@ -4151,7 +4154,7 @@ Regression
 <tbody>
 <tr>
 <td style="text-align:left;">
-(Intercept)
+Intercept
 </td>
 <td style="text-align:center;">
 56.884
@@ -4173,7 +4176,7 @@ p = &lt;0.001
 </tr>
 <tr>
 <td style="text-align:left;">
-Homicide_Rate
+Homicide Rate
 </td>
 <td style="text-align:center;">
 1.311
@@ -4222,7 +4225,7 @@ R2 Adj.
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>support_plot_1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>deathpenalty</span>,</span>
 <span>  mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>Homicide_Rate</span>, y <span class='op'>=</span> <span class='va'>Percent_Support</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> </span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='st'>"black"</span><span class='op'>)</span> <span class='op'>+</span> </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='st'>"darkorchid4"</span><span class='op'>)</span> <span class='op'>+</span> </span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"Homicide Rate"</span>, </span>
 <span>       y <span class='op'>=</span> <span class='st'>"Percent in Favor"</span>, </span>
 <span>       title <span class='op'>=</span> <span class='st'>"Percent in Favor vs. Homicide Rate"</span>, </span>
@@ -4236,9 +4239,11 @@ R2 Adj.
 <p>Then, to explore the relationship between the rate of financial dissatisfaction and public support for the death penalty, I ran a regression using “Percent_Support” as the response variable and “Fin_Dissatisfaction” as the explanatory variable. I also plotted these two variables on a scatter plot with a smoothed trend line.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>lm_support_2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>Percent_Support</span> <span class='op'>~</span> <span class='va'>Fin_Dissatisfaction</span>,</span>
-<span>              data <span class='op'>=</span> <span class='va'>deathpenalty</span><span class='op'>)</span> </span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>varnames6</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"(Intercept)"</span> <span class='op'>=</span> <span class='st'>"Intercept"</span>,</span>
+<span>               <span class='st'>"Fin_Dissatisfaction"</span> <span class='op'>=</span> <span class='st'>"Financial Dissatisfaction"</span><span class='op'>)</span></span>
 <span></span>
+<span><span class='va'>lm_support_2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>Percent_Support</span> <span class='op'>~</span> <span class='va'>Fin_Dissatisfaction</span>,</span>
+<span>              data <span class='op'>=</span> <span class='va'>deathpenalty</span><span class='op'>)</span> </span>
 <span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>lm_support_2</span><span class='op'>)</span></span></code></pre>
 </div>
 <pre><code>
@@ -4264,7 +4269,8 @@ F-statistic: 0.2946 on 1 and 32 DF,  p-value: 0.5911</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'>modelsummary</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/modelsummary/man/modelsummary.html'>modelsummary</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>Regression <span class='op'>=</span> <span class='va'>lm_support_2</span><span class='op'>)</span>,</span>
 <span>                           statistic <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"s.e. = {std.error}"</span>,</span>
 <span>                                         <span class='st'>"p = {p.value}"</span><span class='op'>)</span>,</span>
-<span>                           gof_map <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"nobs"</span>, <span class='st'>"r.squared"</span>, <span class='st'>"adj.r.squared"</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
+<span>                           gof_map <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"nobs"</span>, <span class='st'>"r.squared"</span>, <span class='st'>"adj.r.squared"</span><span class='op'>)</span>,</span>
+<span>                           coef_map <span class='op'>=</span> <span class='va'>varnames6</span><span class='op'>)</span></span></code></pre>
 </div>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
@@ -4279,7 +4285,7 @@ Regression
 <tbody>
 <tr>
 <td style="text-align:left;">
-(Intercept)
+Intercept
 </td>
 <td style="text-align:center;">
 61.167
@@ -4301,7 +4307,7 @@ p = &lt;0.001
 </tr>
 <tr>
 <td style="text-align:left;">
-Fin_Dissatisfaction
+Financial Dissatisfaction
 </td>
 <td style="text-align:center;">
 0.223
@@ -4350,7 +4356,7 @@ R2 Adj.
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>support_plot_2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>deathpenalty</span>,</span>
 <span>  mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>Fin_Dissatisfaction</span>, y <span class='op'>=</span> <span class='va'>Percent_Support</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> </span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='st'>"black"</span><span class='op'>)</span> <span class='op'>+</span> </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='st'>"blue"</span><span class='op'>)</span> <span class='op'>+</span> </span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"Financial Dissatisfaction"</span>, </span>
 <span>       y <span class='op'>=</span> <span class='st'>"Percent in Favor"</span>, </span>
 <span>       title <span class='op'>=</span> <span class='st'>"Percent in Favor vs. Financial Dissatisfaction"</span>, </span>
@@ -4502,22 +4508,27 @@ R2 Adj.
 </div>
 <p>In this multiple regression, the relationship between the homicide rate and public support remains statistically significant and the relationship between the rate of financial dissatisfaction and public support remains not statistically significant. However, compared to the __ regressions, the coefficient and the standard error for homicide rate increased slightly, and its p-value decreased. ___</p>
 <h2 id="conclusion">Conclusion</h2>
+<p>Ultimately, my analyses provide support for H1 (), but not for H2 () or H().</p>
+<p>For H1, my findings suggest that</p>
+<p>For H2, my findings show a statistically significant relationship between the homicide rate and the number of executions. However, contrary to my hypothesis, this relationship/correlation is negative. In other words, as the homicide rate increases, the number of executions decrease, and as the homicide rate decreases, the number of executions increase. This finding was particularly surprising to me and certainly warrants further research. One potential explanation may be reverse causality. Though still widely debated, some scholars maintain that capital punishment/executions act as a deterrent to violent crime. Further analyses, then, should investigate the relationship between these two variables using the number of executions as the explanatory variable and the homicide rate as the response variable.</p>
+<p>For H3, my findings show a statistically significant relationship between the number of exonerations and the number of executions.</p>
 <h2 id="works-cited">Works Cited</h2>
-<p>Data:</p>
-<p>Bureau of Justice Statistics. (2011). Homicide Trends In The United States. U.S. Department of
+<p><strong>Data:</strong></p>
+<p>Bureau of Justice Statistics. (2011). “Homicide Trends In The United States.” U.S. Department of
 Justice. Data accessed using the Internet Archive’s Wayback Machine,
 <a href="https://web.archive.org/web/20110727134213/http://bjs.ojp.usdoj.gov/content/homicide/tables/totalstab.cfm" class="uri">https://web.archive.org/web/20110727134213/http://bjs.ojp.usdoj.gov/content/homicide/tables/totalstab.cfm</a></p>
-<p>Crime Data Explorer. (2023). Trend of Homicide from 1985 to 2022. Federal Bureau of Investigations.
+<p>Crime Data Explorer. (2023). “Trend of Homicide from 1985 to 2022.” Federal Bureau of Investigations.
 <a href="https://cde.ucr.cjis.gov/LATEST/webapp/#/pages/explorer/crime/crime-trend" class="uri">https://cde.ucr.cjis.gov/LATEST/webapp/#/pages/explorer/crime/crime-trend</a></p>
-<p>Davern, Michael et. al., National Opinion Research Center at the University of Chicago.(2023).
-General Social Survey 1972-2022. Sponsored by National Science Foundation. Data
+<p>Davern, Michael et. al., National Opinion Research Center at the University of Chicago. (2023).
+“General Social Survey 1972-2022.” Sponsored by National Science Foundation. Data
 accessed from the GSS Data Explorer website at gssdataexplorer.norc.org.</p>
-<p>Snell, Tracy L., U.S. Department of Justice. (2023). Prisoners Executed. Bureau of Justice
+<p>Death Penalty Information Center. (2023). Innocence Database.
+<a href="https://deathpenaltyinfo.org/database/innocence" class="uri">https://deathpenaltyinfo.org/database/innocence</a></p>
+<p>Snell, Tracy L., U.S. Department of Justice. (2023). “Prisoners Executed.” Bureau of Justice
 Statistics. <a href="https://bjs.ojp.gov/library/publications/prisoners-executed" class="uri">https://bjs.ojp.gov/library/publications/prisoners-executed</a>.</p>
-<p>Death Penalty Information Center</p>
-<p>Academic Literature:</p>
-<p>Steiker, Carol S., and Jordan M. Steiker. Courting Death: The Supreme Court and Capital
-Punishment. Cambridge, MA: The Belknap Press of Harvard University Press, 2016.</p>
+<p><strong>Academic Literature:</strong></p>
+<p>Steiker, Carol S., and Jordan M. Steiker. “Courting Death: The Supreme Court and Capital
+Punishment.” Cambridge, MA: The Belknap Press of Harvard University Press, 2016.</p>
 <p>Steiker, Carol S., and Jordan M. Steiker. “Entrenchment and/or Destabilization? Reflections on
 (Another) Two Decades of Constitutional Regulation of Capital Punishment.” Law and
 Inequality: A Journal of Theory and Practice 30, no. 2 (August 10, 2012).</p>
