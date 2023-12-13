@@ -32,30 +32,35 @@ H3: The number of executions increases as the number of exonerations increases.
 
 
 ## Data & Research Design
-My data does not come from a single source, as I was unable to find a dataset that contained all (or even most) of the variables I was interested in analyzing. Instead, I compiled data from four different datasets into a single excel spreadsheet, which I then converted to a .csv file. My data on the number of annual executions comes from the U.S. Department of Justice's Bureau of Justice Statistics (BJS). The BJS database contained data for the period 1977-2022, in a dataset entitled "Prisoners Executed." Due to the Furman v. Georgia ruling, no executions were carried out between 1972-1976, so I was able to _____ in my Excel spreadsheet. For data on the annual national homicide rate, I used 
-
+My data does not come from a single source, as I was unable to find a dataset that contained all (or even most) of the variables I was interested in analyzing. Instead, I compiled data from five different datasets into a single excel spreadsheet, which I then converted to a .csv file. My data on the number of annual executions comes from the U.S. Department of Justice's Bureau of Justice Statistics (BJS). The BJS database contained data for the period 1977-2022, in a dataset entitled "Prisoners Executed." Due to the Furman v. Georgia ruling, no executions were carried out between 1972-1976, so I was able to _____ in my Excel spreadsheet. For data on the annual national homicide rate, I used 
 
 
 The BJS website no longer publicly displays homicide rdata for years prior to 1985, so in order to find this information, I searched the Internet Archive's Wayback Machine. There, I located an archived dataset published by 
 
 
+For data on the number of death row exonerations, I used the Death Penalty Information Center's
+
+
+Finally, for data on public opinion/public support for capital punishment
+
 | Name                   | Description                               
 |------------------------|--------------------------------------------------------------------
-| `Year`                 | Year ___ ?
+| `Year`                 | Year
+| `Percent_Support`      | Percentage of surveyed Americans who favor the death penalty as a punishment for murder
 | `Number_Executions`    | Number of prisoners executed in the United States
 | `Number_Exonerations`  | Number of death row exonerations
-| `Homicide_Rate`        | National homicide rate
-| `Fin_Dissatisfaction`  | % of Americans are dissatified with their overall financial situation
+| `Homicide_Rate`        | National homicide rate (measured in homicides per 100,000 residents)
+| `Fin_Dissatisfaction`  | Percentage of surveyed Americans who are dissatified with their overall financial situation
 
 I included a few variables that I do not use in this report, but that may yield fruitful inside if analyzed in future research. The data for each of these variables also came from the General Social Survey dataset. Below are the variables and a brief description of each:
 
 | Name                          | Description                               
 |-------------------------------|--------------------------------------------------------------------
-| `Pro_Prayer_Schools`          | % of Americans who support Christian prayer in public schools
-| `Ban_IRM`                     | % of Americans who support a ban on interracial marriage
-| `Insufficient_Spending_CR`.   | % of Americans who believe 
-| `Distrust_SC`                 | % of Americans who distrust the Supreme Court to do the right thing
-| `Distrust_Congress`           | % of Americans who distrust Congress to do the right thing
+| `Pro_Prayer_Schools`          | Percentage of surveyed Americans who support Christian prayer in public schools
+| `Ban_IRM`                     | Percentage of surveyed Americans who support a ban on interracial marriage
+| `Insufficient_Spending_CR`    | Percentage of surveyed Americans who believe the government spends too little money addressing the issue of the rising crime rate
+| `Distrust_SC`                 | Percentage of surveyed Americans who distrust the Supreme Court
+| `Distrust_Congress`           | Percentage of surveyed Americans who distrust Congress
 
 
 I then loaded this file into RStudio, named it "deathpenalty," and presented my dataset in a table. 
@@ -165,81 +170,98 @@ dp_plot_8
 
 
 ```{r}
-dp_plot_7 <- ggplot(data = deathpenalty,
+varnames1 <- c("(Intercept)" = "Intercept",
+               "Percent_Support" = "Public Support")
+            
+
+dp_lm_1 <- lm(Number_Executions ~ Percent_Support, 
+   data = deathpenalty)
+summary(dp_lm_1)
+modelsummary::modelsummary(list(Regression = dp_lm_1),
+                           statistic = c("s.e. = {std.error}",
+                                         "p = {p.value}"),
+                           gof_map = c("nobs", "r.squared", "adj.r.squared"),
+                           coef_map = varnames1)
+
+dp_plot_9 <- ggplot(data = deathpenalty,
 mapping = aes(x = Percent_Support, y = Number_Executions)) +
 geom_point() +
-geom_smooth(color = "Blue") +
-  labs(x = "Percent in Favor", y = "Number of Executions", title = "Number of Executions vs. Support for Capital Punishment", caption = "Sources: General Social Survey & US Department of Justice")
+geom_smooth(color = "black") +
+  labs(x = "Percent in Favor", y = "Number of Executions", 
+       title = "Number of Executions vs. Support for Capital Punishment", 
+       caption = "Sources: General Social Survey & US Department of Justice")
 
-
-
-
-
-dp_plot_7
-
-cor(deathpenalty$Percent_Support, deathpenalty$Number_Executions, use = 'complete.obs')
-
-
+dp_plot_9
 ```
 
 
 
 ```{r}
-lm(Number_Executions ~ Percent_Support, data = deathpenalty)
+varnames2 <- c("(Intercept)" = "Intercept",
+               "Homicide_Rate" = "Homicide Rate")
 
-lm(Percent_Support ~ Homicide_Rate, data = deathpenalty)
-```
-
-
-
-
-
-```{r}
-lm_executions_1 <- lm(Number_Executions ~ Homicide_Rate,
-              data = deathpenalty) 
-
-summary(lm_executions_1)
-modelsummary::modelsummary(list(Regression = lm_executions_1),
+lm_dp_2 <- lm(Number_Executions ~ Homicide_Rate,
+              data = deathpenalty)
+summary(lm_dp_2)
+modelsummary::modelsummary(list(Regression = lm_dp_2),
                            statistic = c("s.e. = {std.error}",
                                          "p = {p.value}"),
-                           gof_map = c("nobs", "r.squared", "adj.r.squared"))
+                           gof_map = c("nobs", "r.squared", "adj.r.squared"),
+                           coef_map = varnames2)
 
+dp_plot_10 <- ggplot(data = deathpenalty,
+mapping = aes(x = Homicide_Rate, y = Number_Executions)) +
+geom_point() +
+geom_smooth(color = "darkorchid4") +
+  labs(x = "Homicide Rate", y = "Number of Executions", 
+       title = "Number of Executions vs. Homicide Rate", 
+       caption = "Sources: General Social Survey & Federal Bureau of Investigations")
 
-```
-```{r}
-lm_executions_2 <- lm(Number_Executions ~ Percent_Support,
-              data = deathpenalty) 
+dp_plot_10
 
-summary(lm_executions_2)
-modelsummary::modelsummary(list(Regression = lm_executions_2),
-                           statistic = c("s.e. = {std.error}",
-                                         "p = {p.value}"),
-                           gof_map = c("nobs", "r.squared", "adj.r.squared"))
-```
-
-
-
-```{r}
-lm_executions_3 <- lm(Number_Executions ~ Homicide_Rate + Percent_Support,
-              data = deathpenalty) 
-
-summary(lm_executions_3)
-modelsummary::modelsummary(list(Regression = lm_executions_3),
-                           statistic = c("s.e. = {std.error}",
-                                         "p = {p.value}"),
-                           gof_map = c("nobs", "r.squared", "adj.r.squared"))
 ```
 
 
 ```{r}
-lm_executions_4 <- lm(Number_Executions ~ Number_Exonerations,
-              data = deathpenalty) 
+varnames3 <- c("(Intercept)" = "Intercept",
+               "Number_Exonerations" = "Number of Exonerations")
 
-summary(lm_executions_4)
-modelsummary::modelsummary(list(Regression = lm_executions_4),
+lm_dp_3 <- lm(Number_Executions ~ Number_Exonerations,
+              data = deathpenalty) 
+summary(lm_dp_3)
+modelsummary::modelsummary(list(Regression = lm_dp_3),
                            statistic = c("s.e. = {std.error}",
                                          "p = {p.value}"),
-                           gof_map = c("nobs", "r.squared", "adj.r.squared"))
+                           gof_map = c("nobs", "r.squared", "adj.r.squared"),
+                           coef_map = varnames3)
+
+dp_plot_11 <- ggplot(data = deathpenalty,
+mapping = aes(x = Number_Exonerations, y = Number_Executions)) +
+geom_point() +
+geom_smooth(color = "forestgreen") +
+  labs(x = "Number of Exonerations", y = "Number of Executions", 
+       title = "Number of Executions vs. Number of Exonerations", 
+       caption = "Sources: Death Penalty Information Center & US Department of Justice")
+
+dp_plot_11
+```
+
+
+
+```{r}
+varnames4 <- c("(Intercept)" = "Intercept",
+               "Percent_Support" = "Public Support",
+               "Homicide_Rate" = "Homicide Rate",
+               "Number_Exonerations" = "Number of Exonerations")
+
+lm_dp_4 <- lm(Number_Executions ~ Percent_Support + Homicide_Rate + Number_Exonerations,
+              data = deathpenalty) 
+summary(lm_dp_4)
+modelsummary::modelsummary(list(Regression = lm_dp_4),
+                           statistic = c("s.e. = {std.error}",
+                                         "p = {p.value}"),
+                           gof_map = c("nobs", "r.squared", "adj.r.squared"),
+                           coef_map = varnames4)
 ```
 
 
@@ -333,6 +355,7 @@ Davern, Michael et. al., National Opinion Research Center at the University of C
 Snell, Tracy L., U.S. Department of Justice. (2023). Prisoners Executed. Bureau of Justice
   Statistics. https://bjs.ojp.gov/library/publications/prisoners-executed.
   
+  Death Penalty Information Center
   
   
 Academic Literature:
