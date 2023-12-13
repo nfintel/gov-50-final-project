@@ -9,24 +9,23 @@ output:
 
 
 ## Introduction
-In Furman v. Georgia (1972), the United States Supreme Court ruled that capital punishment, in its current form, was being applied in an arbitrary, capricious, and racially biased manner. Such application of capital punishment, according to the Court, constituted a "cruel and unusual punishment," and therefore violated the 8th and 14th amendments of the US Constitution. In effect, the Furman ruling placed an indefinite moratorium on executions until states and the federal government could alter their capital statutes in a manner that no longer violated the Constitution. Four years later, in Gregg v. Georgia (1976), the Court ruled that Georgia that a handful of states' revised statutes conformed to the standards required by Furman, thus lifting the moratorium on executions and ushering in what scholars has dubbed "the modern era of the American death penalty." The reinstatement of capital punishment in the Untied States was a historic anomaly, as the majority of America's peer nations during this time period were moving to permanently abolish the death penalty. Indeed, today, the Untied States is the world's only "western" democracy to retain its death penalty and to actively execute its citizens. 
+In Furman v. Georgia (1972), the United States Supreme Court ruled that capital punishment, in its current form, was being applied in an arbitrary, capricious, and racially biased manner. Such application of capital punishment, according to the Court, constituted a "cruel and unusual punishment," and therefore violated the 8th and 14th amendments of the US Constitution. In effect, the Furman ruling placed an indefinite moratorium on executions until states and the federal government could alter their capital statutes in a manner that no longer violated the Constitution. Four years later, in Gregg v. Georgia (1976), the Court ruled that Georgia that a handful of states' revised statutes conformed to the standards required by Furman, thus lifting the moratorium on executions and ushering in what scholars has dubbed "the modern era of the American death penalty" (Killingley, 2008). The reinstatement of capital punishment in the Untied States was a historic anomaly, as the majority of America's peer nations during this time period were moving to permanently abolish the death penalty (Garland, 2010). Indeed, today, the Untied States is the world's only "western" democracy to retain its death penalty and to actively execute its citizens (Steiker & Steiker, 2016). 
 
-Both today and in the years preceding Furman v. Georgia, death penalty abolitionists and anti-death penalty activists have pursued a "moratorium strategy," where they attempt to get state governments and the federal governments to place a moratorium on executions, or at least minimize the annual number of executions. As explained by ___ () lowering execution rates is often the first step toward permanent abolition of capital punishment, as was the case in ___. Some scholars believe that that, by substantially lowering the number of annual executions, permanent death penalty abolition in the United States will become more feasible. However, there is currently a dearth of research on the factors/conditions that impact the number of executions the United States carries out in a given year. My project aims to begin to fill this gap in research. This research is important because it may help activists better focus their efforts on those factors or conditions that decrease the number of annual executions.
+Both today and in the years preceding Furman v. Georgia, death penalty abolitionists and anti-death penalty activists have pursued a "moratorium strategy," where they attempt to get state governments and the federal governments to place a moratorium on executions, or at least minimize the annual number of executions (Zimring & Hawkins, 1986). From a historical/comparative perspective, lowering execution rates is often the first step toward permanent abolition of capital punishment, as was the case in Sweden, The Netherlands, Switzerland, and Denmark (Zimring & Hawkins, 1986). Some scholars believe that that, by substantially lowering the number of annual executions, permanent death penalty abolition in the United States will become more feasible. However, there is currently a dearth of research on the factors/conditions that impact the number of executions the United States carries out in a given year. My project aims to begin to fill this gap in research. This research is important because it may help activists better focus their efforts on those factors or conditions that decrease the number of annual executions.
 
 To this end, I ask the following research question:
 
+Is the number of executions carried out by the United States each year impacted by public support, the homicide rate, or the number of death row exonerations?
 
-
-The corpus of social science literature on capital punishment emphasizes that, in most democratic nations, public opinion plays a limited role in governments' decision to abolish the death penalty. However, these scholars note that it is unwise the assume these trends will hold true in the Unites States, as American democracy has a number of idiosyncratic features that change the calculus. These features include (but are not limited to) popularly elected prosecutors and judges, the frequent use of referenda and ballot initiatives, _____(citation). Ultimately, ____. Guided by this literature, I have formulated my first hypothesis:
+The corpus of social science literature on capital punishment emphasizes that, in most democratic nations, public opinion plays a limited role in governments' decision to abolish the death penalty. Zimring and Hawkins (1986) explain that ...... However, these scholars note that it is unwise the assume these trends will hold true in the Unites States, as American democracy has a number of idiosyncratic features that change the calculus. These features include (but are not limited to) popularly elected prosecutors and judges, the frequent use of referenda and ballot initiatives, weak political parties and other 'intermediary institutions,' frequent elections, and our federal system of government heighten the salience of public opinion in governmental decision-making (Garland, 2010; Steiker, 2006). There may, therefore, be reason to believe that public support impacts ____. Guided by this literature, I have formulated my first hypothesis:
 
 H1: Public support for capital punishment increases the number of executions.
-
 
 Additionally, ___ [crime rate] As such, I've developed a second hypothesis:
 
 H2: The number of executions increases as the homicide rate increases.
 
-Finally, Carol and Jordan Steiker () explain that ____, the US became the "first and only one of its peer nations to move not from formal retention of the death penalty to abolition, but rather from retention to regulation." This procedural regulation, according to Steiker & Steiker () has had the “effect of legitimating the use of capital punishment as a penal sanction in the eyes of actors within the criminal justice system and the public at large." In other words, in our era of ____ exonerations. Guided by the research of Steiker & Steiker, I have formulated a third (and final) hypothesis:
+Finally, Carol and Jordan Steiker (2012) explain that upon adjudication of Gregg v. Georgia, the US became the "first and only one of its peer nations to move not from formal retention of the death penalty to abolition, but rather from retention to regulation." This procedural regulation, according to Steiker & Steiker (1995) has had the “effect of legitimating the use of capital punishment as a penal sanction in the eyes of actors within the criminal justice system and the public at large." In other words, in our era of ____ exonerations. Guided by the research of Steiker & Steiker, I have formulated a third (and final) hypothesis:
 
 H3: The number of executions increases as the number of exonerations increases.
 
@@ -166,13 +165,9 @@ dp_plot_8
 
 ## Results
 
-
-
-
 ```{r}
 varnames1 <- c("(Intercept)" = "Intercept",
                "Percent_Support" = "Public Support")
-            
 
 dp_lm_1 <- lm(Number_Executions ~ Percent_Support, 
    data = deathpenalty)
@@ -193,7 +188,7 @@ geom_smooth(color = "black") +
 
 dp_plot_9
 ```
-
+According to this regression, the intercept is 12.410, which means that — all else being constant — when 0% of Americans support capital punishment, 12.410 individuals will be executed annually. The coefficient for public support  is 0.183, which means that — all else being held constant — for each unit (percentage point) of increase in public suoport for capital punishment, the number of executions increases by .183 units (persons executed). However, this relationship is not statistically significant, as the p-value is well above 0.05. Therefore, I am not able to reject the null hypothesis that public support  is not correlated with number of executions. In addition, these results should not be interpreted causally, as this regression does not take any or all possible confounding variables into account.
 
 
 ```{r}
@@ -220,7 +215,7 @@ geom_smooth(color = "darkorchid4") +
 dp_plot_10
 
 ```
-
+According to this regression, the intercept is 91.697, which means that — all else being constant — when the homicide rate is 0, 91.697 individuals will be executed annually. The coefficient for homicide rate is -8.504, which means that — all else being held constant — for each unit (FIGURE OUT UNITS) of increase in homicide rate, the number of executions increases by decreases by 8.504 units (persons executed). This relationship is  statistically significant, as the p-value is well below 0.05. Therefore, I can reject the null hypothesis that homicide rate is not correlated with number of executions. That said, these results should not be interpreted causally, as this regression does not take any or all possible confounding variables into account.
 
 ```{r}
 varnames3 <- c("(Intercept)" = "Intercept",
@@ -245,7 +240,7 @@ geom_smooth(color = "forestgreen") +
 
 dp_plot_11
 ```
-
+According to this regression, the intercept is 16.035, which means that — all else being constant — when there are 0 exonerations, 16.035 individuals will be executed annually. The coefficient for number of exonerations is 3.939, which means that — all else being held constant — for each unit of (death row inmates exonerated) of increase in number of exonerations, the number of executions increases by 3.939 units (persons executed). This relationship is  statistically significant, as the p-value is below 0.05. Therefore, I am able to reject the null hypothesis that number of exonerations is not correlated with number of executions. However, these results should not be interpreted causally, as this regression does not take any or all possible confounding variables into account.
 
 
 ```{r}
@@ -271,6 +266,8 @@ modelsummary::modelsummary(list(Regression = lm_dp_4),
 
 For a bit of secondary analysis, I decided to investigate potential factors or conditions that impact public support for capital punishment. First, to explore the relationship between the homicide rate and public support for the death penalty, I ran a regression using "Percent_Support" as the response variable and "Homicide_Rate" as the explanatory variable and plotted these two variables on a scatter plot with a smoothed trend line. 
 
+could say casusal effect (noting limitations)
+
 ```{r}
 varnames5 <- c("(Intercept)" = "Intercept",
                "Homicide_Rate" = "Homicide Rate")
@@ -294,7 +291,7 @@ support_plot_1 <- ggplot(data = deathpenalty,
 
 support_plot_1
 ```
-According to this regression, the intercept is 56.884, which means that — all else being constant — when the homicide rate is 0,  public support for capital punishment is 56.884%. The coefficient for homicide rate is 1.311, which means that — all else being held constant — for each unit (percentage point) the homicide rate increases, public support for capital punishment increases by 1.311 units (percentage points). This relationship is statistically significant, as the p-value is under 0.05.
+According to this regression, the intercept is 56.884, which means that — all else being constant — when the homicide rate is 0,  public support for capital punishment is 56.884%. The coefficient for homicide rate is 1.311, which means that — all else being held constant — for each unit (FIGURE OUT UNIT) the homicide rate increases, public support for capital punishment increases by 1.311 units (percentage points). This relationship is statistically significant, as the p-value is under 0.05. Therefore, I am able to reject the null hypothesis that the homicide rate is not correlated with public support for capital punishment. That said, these results should not be interpreted causally, as this regression does not take any or all possible confounding variables into account.
 
 
 Then, to explore the relationship between the rate of financial dissatisfaction and public support for the death penalty, I ran a regression using "Percent_Support" as the response variable and "Fin_Dissatisfaction" as the explanatory variable. I also plotted these two variables on a scatter plot with a smoothed trend line. 
@@ -322,7 +319,7 @@ support_plot_2 <- ggplot(data = deathpenalty,
 
 support_plot_2
 ```
-According to this regression, the intercept is 61.167, which means that — all else being constant — when the homicide rate is 0,  public support for capital punishment is 61.167%. The coefficient for homicide rate is 0.223, which means that — all else being held constant — for each unit (FIGURE OUT UNIT) financial dissatisfaction increases, public support for capital punishment increases by 0.223 units (percentage points). However, this relationship is NOT statistically significant, as the p-value is well above 0.05.
+According to this regression, the intercept is 61.167, which means that — all else being constant — when the rate of financial dissatisfaction rate is 0,  public support for capital punishment is 61.167%. The coefficient for financial dissatisfaction is 0.223, which means that — all else being held constant — for each unit (percentage point) that financial dissatisfaction increases, public support for capital punishment increases by 0.223 units (percentage points). However, this relationship is NOT statistically significant, as the p-value is well above 0.05. Therefore, I fail to reject the null hypothesis that financial dissatisfaction has no correlation/relationship to the level of public support for capital punishment. Additionally, I cannot infer causality from this analysis, as this regression does not hold any or all potential confounding variables constant.
 
 
 Finally, I ran a multiple regression using Percent_Support as the response variable and "Homicide_Rate" and "Fin_Dissatisfaction" as the explanatory variables.
@@ -340,16 +337,16 @@ modelsummary::modelsummary(list(Regression = lm_support_3),
 In this multiple regression, the relationship between the homicide rate and public support remains statistically significant and the relationship between the rate of financial dissatisfaction and public support remains not statistically significant. However, compared to the __ regressions, the coefficient and the standard error for homicide rate increased slightly, and its p-value decreased. ___
 
 ## Conclusion
-Ultimately, my analyses provide support for H1 (), but not for H2 () or H().
+Ultimately, my analyses provide some support for H1 (). The bivariate regression returned findings that aligned with my hypothesis but were not statistically signficant. However, a multiple regression that __ homicide rate and number of exonerations, returned findings that aligned with my hypothesis and were statistically significant. From this, I can conclude that ___. However, from this alone I cannot infer causality, as .....
 
-For H1, my findings suggest that
+For H2, my findings show a statistically significant relationship between the homicide rate and the number of executions. However, contrary to my hypothesis, this relationship/correlation is negative. In other words, as the homicide rate increases, the number of executions decrease, and as the homicide rate decreases, the number of executions increase. Therefore, my results run counter to H2. This finding was particularly surprising to me and certainly warrants further research. One potential explanation may be reverse causality. Though still widely debated, some scholars maintain that capital punishment/executions deter violent crime. Further analyses, then, should investigate the relationship between these two variables using the number of executions as the explanatory variable and the homicide rate as the response variable. 
 
-For H2, my findings show a statistically significant relationship between the homicide rate and the number of executions. However, contrary to my hypothesis, this relationship/correlation is negative. In other words, as the homicide rate increases, the number of executions decrease, and as the homicide rate decreases, the number of executions increase. This finding was particularly surprising to me and certainly warrants further research. One potential explanation may be reverse causality. Though still widely debated, some scholars maintain that capital punishment/executions act as a deterrent to violent crime. Further analyses, then, should investigate the relationship between these two variables using the number of executions as the explanatory variable and the homicide rate as the response variable. 
-
-For H3, my findings show a statistically significant relationship between the number of exonerations and the number of executions.
+For H3, my findings show a statistically significant relationship between the number of exonerations and the number of executions. As predicted, I found that the number of executions increase as the number of exonerations increase. As some scholars suggest, this may be attributed to the legitimating/stabilizing effect that procedural regulation has on the institution of capital punishment. Exonerations, therefore—by demonstrating that mistakes/wrongful convictions can be rectified—may work to legitimate executions and entrench the institution of capital punishment. Governmental actors may be more likely to carry out excecutions (and may receive less push-back for doing so) if they have greater confidence that the wrongfully convicted will be/have been exonerated.
 
 
+One limitation of my analysis is that it does not break down my data on a state-by-state basis. Since states have original jurisdiction over their criminal justice policies and carry out their own executions, attaining a full understanding of the link between explanatory variables and the number of executions would require a state-by-state breakdown, along with this national-level analysis. Hypothetically, a state without the death penalty could have a disproportionately high homicide rate. If this were the case, it may help to explain the surprising findings of my tests of Hypothesis 2. Unfortunately, to my best knowledge, state-by-state public opinion data on capital punishment is not publicly available. 
 
+Another limitation is that my analyses do not consider the number of death sentences given each year or the number of people on death row each year. If I had unlimited time, I'd like to repeat these regressions using the proportion of death row inmates executed each year along with the raw-number strategy I used in this study. I'd also analyze the relationship between death sentences per year and the other variables I analyzed in this study.
 
 
 ## Works Cited
@@ -377,6 +374,13 @@ Snell, Tracy L., U.S. Department of Justice. (2023). "Prisoners Executed." Burea
   
 __Academic Literature:__
 
+Garland, David. "Peculiar Institution: America’s Death Penalty in an Age of Abolition."
+Cambridge, MA: Belknap Press of Harvard University Press, 2010.
+
+Killingley, Julian. "Constraining America's Death Penalty: The Eighth Amendment and Excessive
+Punishment." in "Against the Death Penalty: International Initiatives and Implications." ed. 
+John Yorke. Ashgate Publishing, 2008.
+
 Steiker, Carol S., and Jordan M. Steiker. "Courting Death: The Supreme Court and Capital
   Punishment." Cambridge, MA: The Belknap Press of Harvard University Press, 2016.
 
@@ -386,5 +390,8 @@ Steiker, Carol S., and Jordan M. Steiker. “Entrenchment and/or Destabilization
 
 Steiker, Carol S., and Jordan M. Steiker. “Sober Second Thoughts: Reflections on Two Decades
   of Constitutional Regulation of Capital Punishment.” Harvard Law Review 109, no. 2 (1995): 355–438.
+  
+Zimring, Frankin E. and Gordon Hawkins. "Capital Punishment and the American Agenda."
+Cambridge University Press, 1986.
 
 
