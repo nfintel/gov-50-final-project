@@ -267,7 +267,7 @@ support_plot_1
 According to this regression, the intercept is 56.884, which means that — all else being constant — when the homicide rate is 0,  public support for capital punishment is 56.884%. The coefficient for homicide rate is 1.311, which means that — all else being held constant — for each unit (percentage point) the homicide rate increases, public support for capital punishment increases by 1.311 units (percentage points). This relationship is statistically significant, as the p-value is under 0.05.
 
 
-Then, to explore the relationship between financial dissatisfaction and public support for the death penalty, I ran a regression using "Percent_Support" as the response variable and "Fin_Dissatisfaction" as the explanatory variable. I also plotted these two variables on a scatter plot with a smoothed trend line. 
+Then, to explore the relationship between the rate of financial dissatisfaction and public support for the death penalty, I ran a regression using "Percent_Support" as the response variable and "Fin_Dissatisfaction" as the explanatory variable. I also plotted these two variables on a scatter plot with a smoothed trend line. 
 
 ```{r}
 lm_support_2 <- lm(Percent_Support ~ Fin_Dissatisfaction,
@@ -304,6 +304,6 @@ modelsummary::modelsummary(list(Regression = lm_support_3),
                                          "p = {p.value}"),
                            gof_map = c("nobs", "r.squared", "adj.r.squared"))
 ```
-In this multiple regression, the relationship between the homicide rate and public support remains statistically significant and the relationship between financial dissatisfaction and public support remains not statistically significant. However, 
+In this multiple regression, the relationship between the homicide rate and public support remains statistically significant and the relationship between the rate of financial dissatisfaction and public support remains not statistically significant. However, 
 
 
