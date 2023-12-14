@@ -21,7 +21,7 @@ The corpus of social science literature on capital punishment emphasizes that, i
 
 For H1, my explanatory variable is the level of public support for capital punishment (measured as the percentage/proportion of survey respondents who stated that they were in favor of the death penalty as punishment for convicted murderers). My response variable is the number of executions carried out in the United States in a given year. This variable is measured simply in the raw number of individuals executed. H1 would be supported by the observation that a greater number of executions are carried out when public support for capital punishment is high compared to when public support for capital punishment is low. The following two observations would disprove H1: (1) there is no correlation between the level of public support for capital punishment and the number of executions, or (2) fewer executions are carried out when public support for capital punishment is high compared to when public support is low.
 
-Next, ___ [crime rate] As such, I present a second hypothesis:
+Next, Greenberg & West (2008) find that when social threats—including high rates of homicide—are present, governments are more likely to carry out executions. Similarly, Garland (2010) argues that America's idiosyncratic retention of capital punishment is, in part, a function of the "extraordinary" rates of lethal violence in the US. Additionally, Bright (1998) explains that, due to the pervasiveness of America's "tough on crime" ethos, it is politically advantageous for elected officials to carry out death sentences as homicide rates increase. As such, I present a second hypothesis:
 
 **H2: As the national homicide rate increases, the number of executions will increase.**
 
@@ -400,14 +400,22 @@ Snell, Tracy L., U.S. Department of Justice. (2023). "Prisoners Executed." Burea
   
 __Academic Literature:__
 
+Bright, Stephen B. "The Politics of Capital Punishment: The Sacrifice of Fairness for Executions."
+in America's Experiment with Capital Punishment." ed. James Acker, Robert Bohm, Charles Lanier.
+Durham, NC: Carolina Academic Press, 1998.
+
 Garland, David. "Peculiar Institution: America’s Death Penalty in an Age of Abolition."
 Cambridge, MA: Belknap Press of Harvard University Press, 2010.
+
+Greenberg, D.F. and West, V. "Siting the Death Penalty Internationally." Law & Social Inquiry, 
+33 (2008): 295-343.
 
 Killingley, Julian. "Constraining America's Death Penalty: The Eighth Amendment and Excessive
 Punishment." in "Against the Death Penalty: International Initiatives and Implications." ed. 
 John Yorke. Ashgate Publishing, 2008.
 
-Steiker, Carol S. “Capital Punishment and American Exceptionalism,” in "American Exceptionalism and Human Rights," ed. Michael Ignatieff (Princeton University Press, 2006).
+Steiker, Carol S. “Capital Punishment and American Exceptionalism,” in "American Exceptionalism 
+and Human Rights," ed. Michael Ignatieff (Princeton University Press, 2006).
 
 Steiker, Carol S., and Jordan M. Steiker. "Courting Death: The Supreme Court and Capital
   Punishment." Cambridge, MA: The Belknap Press of Harvard University Press, 2016.
