@@ -69,7 +69,7 @@ When compiling my dataset, I included a few variables that I ultimately did not 
 
 **Research Design Classification**
 
-My research design is observational and can be best classified as an before-and-after study.
+My research design uses observational data and can be best classified as a correlational study.
 
 
 **Basic Data Visualizations**
@@ -211,7 +211,7 @@ geom_smooth(color = "black") +
 
 dp_plot_9
 ```
-According to this regression, the intercept is 12.410, which means that—all else being constant—when public support for capital punishment is zero, 12.410 individuals will be executed annually. The coefficient for public support  is 0.183, which means that—all else being held constant—a one-unit (percentage point)  increase in public support for capital punishment will be associated with a 0.183-unit (person) increase in the number of executions. However, this relationship is not statistically significant, as the p-value is well above 0.05. Therefore, I am not able to reject the null hypothesis that public support is not correlated with number of executions. In addition, these results should not be interpreted causally, as this regression does not take any or all possible confounding variables into account. As such, this analysis does not provide much support—if any—for Hypothesis 1. It suggests that variation in the number of executions carried out year-to-year likely has a different cause.
+According to this regression, the intercept is 12.410, which means that—all else being constant—when public support for capital punishment is zero, 12.410 individuals will be executed annually. The coefficient for public support  is 0.183, which means that—all else being held constant—a one-unit (percentage point) increase in public support for capital punishment will be associated with a 0.183-unit (person) increase in the number of executions. However, this relationship is not statistically significant, as the p-value is well above 0.05. Therefore, I am not able to reject the null hypothesis that public support is not correlated with number of executions. In addition, these results should not be interpreted causally, as this regression does not take any or all possible confounding variables into account. As such, this analysis does not provide much support—if any—for Hypothesis 1. It suggests that variation in the number of executions carried out year-to-year likely has a different cause.
 
 ***Testing Hypothesis 2***
 ```{r}
@@ -238,7 +238,7 @@ geom_smooth(color = "darkorchid4") +
 dp_plot_10
 
 ```
-According to this regression, the intercept is 91.697, which means that—all else being constant—when the homicide rate is zero, 91.697 individuals will be executed annually. The coefficient for homicide rate is -8.504, which means that—all else being held constant—a one-unit (homicide per 100,000 individuals) increase in homicide rate would be associated with a 8.504-unit (persons) decrease in number of executions. This relationship is  statistically significant, as the p-value is well below 0.05. Therefore, I can reject the null hypothesis that homicide rate is not correlated with number of executions. That said, these results should not be interpreted causally, as this regression does not take any or all possible confounding variables into account. This analysis disproves Hypothesis 2.
+According to this regression, the intercept is 91.697, which means that—all else being constant—when the homicide rate is zero, 91.697 individuals will be executed annually. The coefficient for homicide rate is -8.504, which means that—all else being held constant—a one-unit (homicide per 100,000 individuals) increase in homicide rate would be associated with a 8.504-unit (persons) decrease in number of executions. This relationship is  statistically significant, as the p-value is well below 0.05. Therefore, I can reject the null hypothesis that homicide rate is not correlated with number of executions. That said, these results should not be interpreted causally, as this regression does not take any or all possible confounding variables into account. This finding disproves Hypothesis 2.
 
 ***Testing Hypothesis 3***
 ```{r}
@@ -264,7 +264,7 @@ geom_smooth(color = "forestgreen") +
 
 dp_plot_11
 ```
-According to this regression, the intercept is 16.035, which means that — all else being constant — when there are 0 exonerations, 16.035 individuals will be executed annually. The coefficient for number of exonerations is 3.939, which means that — all else being held constant — a one-unit (person) increase in the number of exonerations would be associated with a 3.939-unit (person) increase in the number of executions. This relationship is  statistically significant, as the p-value is below 0.05. Therefore, I am able to reject the null hypothesis that number of exonerations is not correlated with number of executions. However, these results should not be interpreted causally, as this regression does not take any or all possible confounding variables into account.
+According to this regression, the intercept is 16.035, which means that—all else being constant—when there are 0 exonerations, 16.035 individuals will be executed annually. The coefficient for number of exonerations is 3.939, which means that—all else being held constant—a one-unit (person) increase in the number of exonerations would be associated with a 3.939-unit (person) increase in the number of executions. In other words, we'd predict that for every exoneration there will be ~4 executions. This relationship is  statistically significant, as the p-value is below 0.05. Therefore, I am able to reject the null hypothesis that number of exonerations is not correlated with number of executions. However, these results should not be interpreted causally, as this regression does not take any or all possible confounding variables into account.
 
 **Multiple Regression**
 
@@ -289,7 +289,7 @@ modelsummary::modelsummary(list(Regression = lm_dp_4),
                            gof_map = c("nobs", "r.squared", "adj.r.squared"),
                            coef_map = varnames4)
 ```
-According to this regression, the intercept is -7.144, which means that, when level of public support, homicide rate, and number of exonerations are all held at 0, -7.144 individuals would be executed annually. The coefficient for number of exonerations is 2.949, which means that—when level of public support and  homicide rate are held constant—a one-unit (person) increase in number of exonerations would be associated with a 2.949-unit (person) increase in the number of executions. As was the case in the bivariate regression, this relationship is statistically significant, as the p-value is under 0.05. However, both the coefficient and the standard error for the number of exonerations is lower in this multiple regression than they were in the bivariate regression. Nonetheless, the results of this multivariate regression lend further support to H3.
+According to this regression, the intercept is -7.144, which means that, when level of public support, homicide rate, and number of exonerations are all held at 0, -7.144 individuals would be executed annually. The coefficient for number of exonerations is 2.949, which means that—when level of public support and homicide rate are held constant—a one-unit (person) increase in number of exonerations would be associated with a 2.949-unit (person) increase in the number of executions. In other words, for every exoneration there will be ~3 executions. As was the case in the bivariate regression, this relationship is statistically significant, as the p-value is under 0.05. However, both the coefficient and the standard error for the number of exonerations is lower in this multiple regression than they were in the bivariate regression. Nonetheless, the results of this multivariate regression lend further support to H3.
 It is also notable that the relationship between public support and number of executions is NOT statistically significant when calculated in a bivariate regression, but IS statistically significant when the homicide rate and the number of exonerations are held constant in a multiple regression. Future research should investigate this phenomenon further.
 
 
