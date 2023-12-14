@@ -1,7 +1,7 @@
 ---
 title: "Gov 50 Final Project"
 author: "Nicole Fintel"
-description: "Exploring the impacts of public opinion, homicide rates, and death row exonerations on the number of annual executions in the United States"
+description: "Exploring the impacts of public opinion, homicide rates, and death row exonerations on the number of annual executions carried out in the United States"
 output:
   distill::distill_article:
     self_contained: false
@@ -19,7 +19,7 @@ The corpus of social science literature on capital punishment emphasizes that, i
 
 **H1: A high level of public support for capital punishment will increase the number of executions carried out in a given year.**
 
-For H1, my explanatory variable is the level of public support for capital punishment among surveyed Americans. This variable is measured in percentage points. Specifically, this variable is measured as the share of survey respondents who answered "yes" to the the following survey question: "Are you in favor of the death penalty for persons convicted of murder?" My response variable is the number of executions carried out in the United States in a given year. This variable is measured simply in the raw number of individuals executed. H1 would be supported by the observation that a greater number of executions are carried out when public support for capital punishment is high compared to when public support for capital punishment is low. The following two observations would disprove H1: (1) there is no correlation between the level of public support for capital punishment and the number of executions, or (2) fewer executions are carried out when public support for capital punishment is high compared to when public support is low.
+For H1, my explanatory variable is the level of public support for capital punishment (measured as the percentage/proportion of survey respondents who stated that they were in favor of the death penalty as punishment for convicted murderers). My response variable is the number of executions carried out in the United States in a given year. This variable is measured simply in the raw number of individuals executed. H1 would be supported by the observation that a greater number of executions are carried out when public support for capital punishment is high compared to when public support for capital punishment is low. The following two observations would disprove H1: (1) there is no correlation between the level of public support for capital punishment and the number of executions, or (2) fewer executions are carried out when public support for capital punishment is high compared to when public support is low.
 
 Next, ___ [crime rate] As such, I present a second hypothesis:
 
@@ -27,19 +27,24 @@ Next, ___ [crime rate] As such, I present a second hypothesis:
 
 For H2, my explanatory variable is the national homicide rate, which is measured as homicides per 100,000 individuals per year. My response variable is the number of executions carried out in the United States in a given year. H2 would be supported by the observation that more executions are carried out during periods of high rates of homicide compared to periods of low rates of homicide. There are two main observations that would disprove this hypothesis: (1) there is no correlation between the homicide rate and the number of executions, or (2) the number of executions tends to be higher during periods of low rates of homicide compared to periods of high rates of homicide.
 
-Finally, Steiker & Steiker (2012) explain that, upon adjudication of Gregg v. Georgia, the US became the "first and only one of its peer nations to move not from formal retention of the death penalty to abolition, but rather from retention to regulation." This procedural regulation, according to Steiker & Steiker (1995), has had the “effect of legitimating the use of capital punishment as a penal sanction in the eyes of actors within the criminal justice system and the public at large." In other words, any alteration to, or regulation of, the institution of capital punishment that gives it the appearance of being less "cruel and unusual" further legitimizes executions and entrenches the institution of capital punishment legally and socially. Guided by the research of Steiker & Steiker, I have formulated a third (and final) hypothesis:
+Finally, Steiker & Steiker (2012) explain that, upon adjudication of Gregg v. Georgia, the US became the "first and only one of its peer nations to move not from formal retention of the death penalty to abolition, but rather from retention to regulation." This procedural regulation, according to Steiker & Steiker (1995), has had the “effect of legitimating the use of capital punishment as a penal sanction in the eyes of actors within the criminal justice system and the public at large." In other words, any alteration to, or regulation of, the institution of capital punishment that gives it the appearance of being less "cruel and unusual" further legitimizes executions and entrenches the institution of capital punishment legally and socially. So, one would expect that—by giving the appearance of "correcting errors"—exonerations would act as a legitimizing force. Guided by the research of Steiker & Steiker, I have formulated a third (and final) hypothesis:
 
-**H3: The number of executions will increase as the number of death row exonerations increases.**
+**H3: A higher number of death row exonerations will lead to a higher number of executions**
 
-For H3, my explanatory variable is the number of death row exonerations (measured as the raw number of daeth row inmates that are exonerated in a given year). My response variable—once again—is the number of executions carried out in the United States in a given year. 
+For H3, my explanatory variable is the number of death row exonerations (measured as the raw number of death row inmates that are exonerated in a given year). My response variable—once again—is the number of executions carried out in the United States in a given year. H3 would be supported by the observation that  more executions are carried out during periods that have a high number of exonerations compared to periods of a low number of exonerations There are two main observations that would disprove this hypothesis: (1) there is no correlation between the number of exonerations and the number of executions, or (2) the number of executions tends to be higher during periods of low numbers of exonerations compared to periods of high numbers of exonerations.
 
 
 ## Data & Research Design
-My data does not come from a single source, as I was unable to find a dataset that contained all (or even most) of the variables I was interested in analyzing. Instead, I compiled data from five different datasets into a single excel spreadsheet, which I then converted to a .csv file. My data on the number of annual executions comes from the U.S. Department of Justice's Bureau of Justice Statistics (BJS). The BJS database contained data for the period 1977-2022, in a dataset entitled "Prisoners Executed." Because of the Furman v. Georgia ruling, no executions were carried out between 1972-1976; I included this data in my Excel spreadsheet. I gathered data on public support for capital punishment (along with data for the six other public opinion-based variables noted below) from the General Social Survey (GSS) database. For data on the annual national homicide rate between the years 1985-2022, I used the "Trend of Homicide from 1985 to 2022" dataset compiled by the Federal Bureau of Investigation's "Crime Data Explorer" tool. The FBI website no longer publicly displays homicide data for years prior to 1985, so in order to find this information, I searched the Internet Archive's Wayback Machine. There, I located an archived dataset published by BJS entitled "Homicide Trends In The United States." From this dataset, I pulled data for the years 1972-1984. 
-For data on the number of death row exonerations, I used the Death Penalty Information Center's
 
-Full citations for these databases can be found in the "Works Cited" section of this report.
+**The Dataset**
 
+My data does not come from a single source, as I was unable to find a dataset that contained all (or even most) of the variables I was interested in analyzing. Instead, I compiled data from five different datasets into a single excel spreadsheet, which I then converted to a .csv file. My data on the number of annual executions comes from the U.S. Department of Justice's Bureau of Justice Statistics (BJS). The BJS database contained data for the period 1977-2022, in a dataset entitled "Prisoners Executed." Because of the Furman v. Georgia ruling, no executions were carried out between 1972-1976; I included this data in my Excel spreadsheet. I gathered data on public support for capital punishment (along with data for the six other public opinion-based variables noted below) from the General Social Survey (GSS) database. For data on the annual national homicide rate between the years 1985-2022, I used the "Trend of Homicide from 1985 to 2022" dataset compiled by the Federal Bureau of Investigation's "Crime Data Explorer" tool. The FBI website no longer publicly displays homicide data for years prior to 1985, so in order to find this information, I searched the Internet Archive's Wayback Machine. There, I located an archived dataset, originally published by BJS, entitled "Homicide Trends In The United States." From this dataset, I pulled data for the years 1972-1984. For data on the number of death row exonerations, I used the Death Penalty Information Center's "Innocence Database," which documents every death row exoneration in the US between 1973-2023. Full citations for these databases can be found in the "Works Cited" section of this report.
+
+**The Variables**
+
+My key independent/explanatory variable for H1 is the level of public support for capital punishment. This variable is measured as the proportion/percentage of survey respondents to answered "yes" to the question: "Do you favor or oppose the death penalty for persons convicted of murder?" My key independent/explanatory variable for H2 is the national homicide rate, which is measured as homicides per 100,000 individuals per year. This data was gathered and reported by government agencies. My key independent/explanatory variable for H3 is the number of death row exonerations, which is measured as the total number of death row inmates who are exonerated in a given year. Data on exonerations is collected and reported by government agencies. Finally, my key dependent/response variable for all three hypotheses is the number of executions carried out by the US in a given year, which is measured as the total number of prisoners executed by the United States in a given year. 
+
+Each of the variables I use to test my three hypothesis are summarized in the table below.
 
 | Name                   | Description                               
 |------------------------|--------------------------------------------------------------------
@@ -47,13 +52,14 @@ Full citations for these databases can be found in the "Works Cited" section of 
 | `Percent_Support`      | Percentage of surveyed Americans who favor the death penalty as a punishment for murder
 | `Number_Executions`    | Number of prisoners executed in the United States
 | `Number_Exonerations`  | Number of death row exonerations
-| `Homicide_Rate`        | National homicide rate (measured in homicides per 100,000 residents)
-| `Fin_Dissatisfaction`  | Percentage of surveyed Americans who are dissatified with their overall financial situation
+| `Homicide_Rate`        | National homicide rate (measured in homicides per 100,000 individuals)
 
-I included a few variables that I do not use in this report, but that may yield fruitful inside if analyzed in future research. The data for each of these variables also came from the General Social Survey dataset. Below are the variables and a brief description of each:
+
+When compiling my dataset, I included a few variables that I ultimately did not utilize while testing my three hypotheses. However, these variables—which I've summarized in the table below—may yield fruitful insights if analyzed in further/future research. The data for each of these variables was taken from the General Social Survey database. 
 
 | Name                          | Description                               
 |-------------------------------|--------------------------------------------------------------------
+| `Fin_Dissatisfaction`         | Percentage of surveyed Americans who are dissatified with their overall financial situation
 | `Pro_Prayer_Schools`          | Percentage of surveyed Americans who support Christian prayer in public schools
 | `Ban_IRM`                     | Percentage of surveyed Americans who support a ban on interracial marriage
 | `Insufficient_Spending_CR`    | Percentage of surveyed Americans who believe the government spends too little money addressing the issue of the rising crime rate
@@ -61,7 +67,16 @@ I included a few variables that I do not use in this report, but that may yield 
 | `Distrust_Congress`           | Percentage of surveyed Americans who distrust Congress
 
 
-I then loaded this file into RStudio, named it "deathpenalty," and presented my dataset in a table. 
+**Research Design Classification**
+
+My research design can be best classified as a before-and-after study.
+
+
+**Basic Data Visualizations**
+
+**I. Data Table**
+
+I loaded my .csv file into RStudio, named it "deathpenalty," and presented my dataset in a table. 
 
 ```{r}
 library(tidyverse)
@@ -74,6 +89,8 @@ deathpenalty <- read_csv("deathpenalty.csv")
 knitr::kable(deathpenalty)
 
 ```
+
+**II. Plots**
 
 To visualize key trends in my dataset, I first plotted the number of executions per year, both as a line graph and as a scatter plot with a smoothed trend line.
 
@@ -162,9 +179,12 @@ dp_plot_8
 ```
 
 
+
+
 ## Results
 
 **Bivariate Regressions**
+
 To test each of my three hypotheses, I ran three bivariate linear regressions and visually plotted each of these relationships on scatterplots with smoothed trend lines. The outputs of these regressions and their respective interpretations are below.
 
 ***Testing Hypothesis 1***
@@ -247,7 +267,13 @@ dp_plot_11
 According to this regression, the intercept is 16.035, which means that — all else being constant — when there are 0 exonerations, 16.035 individuals will be executed annually. The coefficient for number of exonerations is 3.939, which means that — all else being held constant — a one-unit (person) increase in the number of exonerations would be associated with a 3.939-unit (person) increase in the number of executions. This relationship is  statistically significant, as the p-value is below 0.05. Therefore, I am able to reject the null hypothesis that number of exonerations is not correlated with number of executions. However, these results should not be interpreted causally, as this regression does not take any or all possible confounding variables into account.
 
 **Multiple Regression**
+
 ***Further Testing of Hypothesis 3***
+
+
+
+Since Hypothesis 3 was the only hypothesis supported by my findings, I decided to investigate the relationship between number of exonerations and number of executions further. Below, I run a multiple regression using the number of exonerations as the main explanatory/independent variable, level of public support & homicide rate as control/independent variables, and the number of executions as the dependent/response variable.
+
 ```{r}
 varnames4 <- c("(Intercept)" = "Intercept",
                "Number_Exonerations" = "Number of Exonerations",
@@ -263,14 +289,12 @@ modelsummary::modelsummary(list(Regression = lm_dp_4),
                            gof_map = c("nobs", "r.squared", "adj.r.squared"),
                            coef_map = varnames4)
 ```
-According to this regression, the intercept is -7.144, which means that, when level of public support, homicide rate, and number of exonerations are all held at 0, -7.144 individuals would be executed annually. The coefficient for number of exxonerations is 2.949, which means that—when level of public support and  homicide rate are held constant—a one-unit (person) increase in number of exonerations would be associated with a 2.949-unit (person) increase in the number of executions. As was the case in the bivariate regression, this relationship is statistically significant, as the p-value is under 0.05. However, both the coefficient and the standard error for the number of exonerations is lower in this multiple regression than they were in the bivariate regression.
-
-The outputs of this multiple regression are particularly interesting when analyzed in light of the outputs of the three preceding bivariate regressions. Perhaps most notable is the fact that the relationship between public support and number of executions is NOT statistically significant when calculated in a bivariate regression, but IS statistically significant when the homicide rate and the number of exonerations are held constant in a multiple regression.
-
+According to this regression, the intercept is -7.144, which means that, when level of public support, homicide rate, and number of exonerations are all held at 0, -7.144 individuals would be executed annually. The coefficient for number of exonerations is 2.949, which means that—when level of public support and  homicide rate are held constant—a one-unit (person) increase in number of exonerations would be associated with a 2.949-unit (person) increase in the number of executions. As was the case in the bivariate regression, this relationship is statistically significant, as the p-value is under 0.05. However, both the coefficient and the standard error for the number of exonerations is lower in this multiple regression than they were in the bivariate regression. Nonetheless, the results of this multivariate regression lend further support to H3.
+It is also notable that the relationship between public support and number of executions is NOT statistically significant when calculated in a bivariate regression, but IS statistically significant when the homicide rate and the number of exonerations are held constant in a multiple regression. Future research should investigate this phenomenon further.
 
 
 
-## Further/Secondary Analysis
+## Further/Indirect/Bonus Analysis
 
 Though not directly related to my research question, I was interested in exploring potential causes of public support for capital punishment. Specifically, I investigated whether the homicide rate or the rate of financial dissatisfaction impact the level of public support for capital punishment. 
 
@@ -333,16 +357,22 @@ According to this regression, the intercept is 61.167, which means that—all el
 
 
 ## Conclusion
+
+**Summary of Results & Assessment of Hypotheses**
+
 Ultimately, my analyses provide some support for H1 (). The bivariate regression returned findings that aligned with my hypothesis but were not statistically signficant. However, a multiple regression that __ homicide rate and number of exonerations, returned findings that aligned with my hypothesis and were statistically significant. From this, I can conclude that ___. However, from this alone I cannot infer causality, as .....
 
 For H2, my findings show a statistically significant relationship between the homicide rate and the number of executions. However, contrary to my hypothesis, this relationship/correlation is negative. In other words, as the homicide rate increases, the number of executions decrease, and as the homicide rate decreases, the number of executions increase. Therefore, my results run counter to H2. This finding was particularly surprising to me and certainly warrants further research. One potential explanation may be reverse causality. Though still widely debated, some scholars maintain that capital punishment/executions deter violent crime. Further analyses, then, should investigate the relationship between these two variables using the number of executions as the explanatory variable and the homicide rate as the response variable. 
 
 For H3, my findings show a statistically significant relationship between the number of exonerations and the number of executions. As predicted, I found that the number of executions increase as the number of exonerations increase. As some scholars suggest, this may be attributed to the legitimating/stabilizing effect that procedural regulation has on the institution of capital punishment. Exonerations, therefore—by demonstrating that mistakes/wrongful convictions can be rectified—may work to legitimate executions and entrench the institution of capital punishment. Governmental actors may be more likely to carry out excecutions (and may receive less push-back for doing so) if they have greater confidence that the wrongfully convicted will be/have been exonerated.
 
+**Limitations, Threats to Inference, and Improvements for Future Research**
 
-One limitation of my analysis is that it does not break down my data on a state-by-state basis. Since states have original jurisdiction over their criminal justice policies and carry out their own executions, attaining a full understanding of the link between explanatory variables and the number of executions would require a state-by-state breakdown, along with this national-level analysis. Hypothetically, a state without the death penalty could have a disproportionately high homicide rate. If this were the case, it may help to explain the surprising findings of my tests of Hypothesis 2. Unfortunately, to my best knowledge, state-by-state public opinion data on capital punishment is not publicly available. 
+One limitation of my analysis is that it does not break down my data on a state-by-state basis. Since states have original jurisdiction over their criminal justice policies and carry out their own executions, attaining a full understanding of the link between explanatory variables and the number of executions would require a state-by-state breakdown, along with this national-level analysis. Hypothetically, a state without the death penalty could have a disproportionately high homicide rate. If this were the case, it might help to explain my surprising findings for Hypothesis 2. As such, with unlimited time and resources, my research project could be improved by collecting and analyzing state-by-state data (which, for many states, is not publicly available online). 
 
-Another limitation is that my analyses do not consider the number of death sentences given each year or the number of people on death row each year. If I had unlimited time, I'd like to repeat these regressions using the proportion of death row inmates executed each year along with the raw-number strategy I used in this study. I'd also analyze the relationship between death sentences per year and the other variables I analyzed in this study.
+Another limitation is that my analyses do not consider the number of death *sentences* handed down each year or the population of death row each year. If I had unlimited time, I'd like to repeat these regressions using the *proportion* of death row inmates executed each year (as a whole and broken down state-by-state). Raw numbers can sometimes be misleading if they are not considered in conjunction with relevant proportions. Additionally, I would analyze the relationship between the number of *death sentences* handed down each year and the three explanatory variables I analyzed in this study. I'd also test the number of death sentences as a potential explanatory variable for the number of executions.
+
+Finally, a major 'threat to inference' is the fact that I am unable to infer causality for my findings, as my regressions did not hold all potential confounding variables constant. With unlimited time, I would prioritize developing a methodology that would better allow me to infer causality. This would involve identifying relevant confounders, collecting data related to these confounders, and including that data in my regressions. Another 'threat to inference' is the fact that I am missing 17 years of public opinion data. Beginning in the 1990s, the General Social Survey began collecting data every other year as opposed to every year. As such, my dataset could also be improved by consulting data from other public opinion surveys. For instance, by consulting databases from Gallup or similar polling agencies, I may be able to find survey responses for essentially the same questions for missing years.
 
 
 ## Works Cited
