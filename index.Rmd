@@ -298,7 +298,7 @@ It is also notable that the relationship between public support and number of ex
 
 Though not directly related to my research question, I was interested in exploring potential causes of public support for capital punishment. Specifically, I investigated whether the homicide rate or the rate of financial dissatisfaction impact the level of public support for capital punishment. 
 
-First, I ran a bivariate linear regression treating homicide rate (`Homicide_Rate`) as the explanatory variable and level of public support for the death penalty (`Percent_Support`) as the response variable. Then, I ran a regression using level of financial dissatifaction (`Fin_Dissatisfaction`) as the explanatory variable and level of public support for the death penalty (`Percent_Support`) as the response variable. I also visually plotted each of these relationships on scatterplots with smoothed trend lines. The outputs of these regressions and their respective interpretations are below.
+First, I ran a bivariate linear regression treating homicide rate (`Homicide_Rate`) as the explanatory variable and level of public support for the death penalty (`Percent_Support`) as the response variable. Then, I ran a regression using level of financial dissatifaction (`Fin_Dissatisfaction`) as the explanatory variable and level of public support for the death penalty (`Percent_Support`) as the response variable. I also visually plotted each of these relationships on scatter plots with smoothed trend lines. The outputs of these regressions and their respective interpretations are below.
 
 
 ***Homicide Rate***
@@ -352,7 +352,7 @@ support_plot_2 <- ggplot(data = deathpenalty,
 
 support_plot_2
 ```
-According to this regression, the intercept is 61.167, which means that—all else being constant—when the rate of financial dissatisfaction rate is 0,  public support for capital punishment is 61.167%. The coefficient for financial dissatisfaction is 0.223, which means that — all else being held constant — for each unit (percentage point) that financial dissatisfaction increases, public support for capital punishment increases by 0.223 units (percentage points). However, this relationship is NOT statistically significant, as the p-value is well above 0.05. Therefore, I fail to reject the null hypothesis that financial dissatisfaction has no correlation/relationship to the level of public support for capital punishment. Additionally, I cannot infer causality from this analysis, as this regression does not hold any or all potential confounding variables constant.
+According to this regression, the intercept is 61.167, which means that—all else being constant—when the rate of financial dissatisfaction rate is 0, public support for capital punishment is 61.167%. The coefficient for financial dissatisfaction is 0.223, which means that—all else being held constant—for each unit (percentage point) that financial dissatisfaction increases, public support for capital punishment increases by 0.223 units (percentage points). However, this relationship is NOT statistically significant, as the p-value is well above 0.05. Therefore, I fail to reject the null hypothesis that financial dissatisfaction has no correlation/relationship to the level of public support for capital punishment. Additionally, I cannot infer causality from this analysis, as this regression does not hold any or all potential confounding variables constant.
 
 
 
