@@ -15,7 +15,7 @@ Both today and in the years preceding Furman v. Georgia, anti-death penalty acti
 
 To this end, I ask the following research question: **Does public support for capital punishment, the homicide rate, or the number of death row exonerations impact the number of executions carried out in the United States?**
 
-The corpus of social science literature on capital punishment emphasizes that, in most democratic nations, public opinion plays a limited role in governments' decision to abolish the death penalty. Zimring and Hawkins (1986) explain that ...... However, scholars warn against generalizing this trend onto the United States, as American democracy is riddled with idiosyncratic features that alter the way public opinion interacts with governance and governmental decision-making. These features include (but are not limited to) popularly elected prosecutors and judges, the frequent use of referendums and ballot initiatives, weak political parties and 'intermediary institutions,' primary elections, and a federal system of government that delegates substantial power to state and local governments (Garland, 2010; Steiker, 2006). These features heighten the salience of public opinion in governmental decision-making. Therefore, there is reason to believe American lawmakers might be responsive to public opinion when it comes to capital punishment and executions. Guided by this literature, I present my first hypothesis:
+The corpus of social science literature on capital punishment emphasizes that, in most democratic nations, public opinion plays a limited role in governments' decision to abolish the death penalty. Zimring and Hawkins (1986) explain that essentially all nations that have abolished capital punishment have done so *in spite of* overwhelming public support for capital punishment. They also note that, after a jurisdiction abolishes capital punishment, public support for capital punishment usually begins to decrease. However, scholars warn against generalizing this trend onto the United States, as American democracy is riddled with idiosyncratic features that alter the way public opinion interacts with governance and governmental decision-making. These features include (but are not limited to) popularly elected prosecutors and judges, the frequent use of referendums and ballot initiatives, weak political parties and 'intermediary institutions,' the primary election system, and a federal system of government that delegates substantial power to state and local governments (Garland, 2010; Steiker, 2006). These features heighten the salience of public opinion in governmental decision-making. Therefore, there is reason to believe American lawmakers would be responsive to public opinion when it comes to capital punishment and executions. Guided by this literature, I present my first hypothesis:
 
 **H1: A high level of public support for capital punishment will increase the number of executions carried out in a given year.**
 
@@ -25,26 +25,21 @@ Next, ___ [crime rate] As such, I present a second hypothesis:
 
 **H2: As the national homicide rate increases, the number of executions will increase.**
 
-For H2, my explanatory variable is the national homicide rate, which is measured as ___. My response variable, once again, is the number of executions carried out in the United States in a given year. H2 would be supported by the observation that more executions are carried out during periods of high rates of homicide compared to periods of low rates of homicide. There are two main observations that would disprove this hypothesis: (1) there is no correlation between the homicide rate and the number of executions, or (2) the number of executions tends to be higher during periods of low rates of homicide compared to periods of high rates of homicide.
+For H2, my explanatory variable is the national homicide rate, which is measured as homicides per 100,000 individuals per year. My response variable is the number of executions carried out in the United States in a given year. H2 would be supported by the observation that more executions are carried out during periods of high rates of homicide compared to periods of low rates of homicide. There are two main observations that would disprove this hypothesis: (1) there is no correlation between the homicide rate and the number of executions, or (2) the number of executions tends to be higher during periods of low rates of homicide compared to periods of high rates of homicide.
 
 Finally, Steiker & Steiker (2012) explain that, upon adjudication of Gregg v. Georgia, the US became the "first and only one of its peer nations to move not from formal retention of the death penalty to abolition, but rather from retention to regulation." This procedural regulation, according to Steiker & Steiker (1995), has had the “effect of legitimating the use of capital punishment as a penal sanction in the eyes of actors within the criminal justice system and the public at large." In other words, any alteration to, or regulation of, the institution of capital punishment that gives it the appearance of being less "cruel and unusual" further legitimizes executions and entrenches the institution of capital punishment legally and socially. Guided by the research of Steiker & Steiker, I have formulated a third (and final) hypothesis:
 
 **H3: The number of executions will increase as the number of death row exonerations increases.**
 
-For H3, my explanatory variable is the number of death row 
+For H3, my explanatory variable is the number of death row exonerations (measured as the raw number of daeth row inmates that are exonerated in a given year). My response variable—once again—is the number of executions carried out in the United States in a given year. 
 
 
 ## Data & Research Design
-My data does not come from a single source, as I was unable to find a dataset that contained all (or even most) of the variables I was interested in analyzing. Instead, I compiled data from five different datasets into a single excel spreadsheet, which I then converted to a .csv file. My data on the number of annual executions comes from the U.S. Department of Justice's Bureau of Justice Statistics (BJS). The BJS database contained data for the period 1977-2022, in a dataset entitled "Prisoners Executed." Due to the Furman v. Georgia ruling, no executions were carried out between 1972-1976, so I was able to _____ in my Excel spreadsheet. For data on the annual national homicide rate, I used 
-
-
-The BJS website no longer publicly displays homicide rdata for years prior to 1985, so in order to find this information, I searched the Internet Archive's Wayback Machine. There, I located an archived dataset published by 
-
-
+My data does not come from a single source, as I was unable to find a dataset that contained all (or even most) of the variables I was interested in analyzing. Instead, I compiled data from five different datasets into a single excel spreadsheet, which I then converted to a .csv file. My data on the number of annual executions comes from the U.S. Department of Justice's Bureau of Justice Statistics (BJS). The BJS database contained data for the period 1977-2022, in a dataset entitled "Prisoners Executed." Because of the Furman v. Georgia ruling, no executions were carried out between 1972-1976; I included this data in my Excel spreadsheet. I gathered data on public support for capital punishment (along with data for the six other public opinion-based variables noted below) from the General Social Survey (GSS) database. For data on the annual national homicide rate between the years 1985-2022, I used the "Trend of Homicide from 1985 to 2022" dataset compiled by the Federal Bureau of Investigation's "Crime Data Explorer" tool. The FBI website no longer publicly displays homicide data for years prior to 1985, so in order to find this information, I searched the Internet Archive's Wayback Machine. There, I located an archived dataset published by BJS entitled "Homicide Trends In The United States." From this dataset, I pulled data for the years 1972-1984. 
 For data on the number of death row exonerations, I used the Death Penalty Information Center's
 
+Full citations for these databases can be found in the "Works Cited" section of this report.
 
-Finally, for data on public opinion/public support for capital punishment
 
 | Name                   | Description                               
 |------------------------|--------------------------------------------------------------------
@@ -170,6 +165,7 @@ dp_plot_8
 ## Results
 
 **Bivariate Regressions**
+To test each of my three hypotheses, I ran three bivariate linear regressions and visually plotted each of these relationships on scatterplots with smoothed trend lines. The outputs of these regressions and their respective interpretations are below.
 
 ***Testing Hypothesis 1***
 ```{r}
@@ -195,7 +191,7 @@ geom_smooth(color = "black") +
 
 dp_plot_9
 ```
-According to this regression, the intercept is 12.410, which means that — all else being constant — when 0% of Americans support capital punishment, 12.410 individuals will be executed annually. The coefficient for public support  is 0.183, which means that — all else being held constant — for each unit (percentage point) of increase in public suoport for capital punishment, the number of executions increases by .183 units (persons executed). However, this relationship is not statistically significant, as the p-value is well above 0.05. Therefore, I am not able to reject the null hypothesis that public support  is not correlated with number of executions. In addition, these results should not be interpreted causally, as this regression does not take any or all possible confounding variables into account.
+According to this regression, the intercept is 12.410, which means that—all else being constant—when public support for capital punishment is zero, 12.410 individuals will be executed annually. The coefficient for public support  is 0.183, which means that—all else being held constant—a one-unit (percentage point)  increase in public support for capital punishment will be associated with a 0.183-unit (person) increase in the number of executions. However, this relationship is not statistically significant, as the p-value is well above 0.05. Therefore, I am not able to reject the null hypothesis that public support is not correlated with number of executions. In addition, these results should not be interpreted causally, as this regression does not take any or all possible confounding variables into account. As such, this analysis does not provide much support—if any—for Hypothesis 1. It suggests that variation in the number of executions carried out year-to-year likely has a different cause.
 
 ***Testing Hypothesis 2***
 ```{r}
@@ -222,7 +218,7 @@ geom_smooth(color = "darkorchid4") +
 dp_plot_10
 
 ```
-According to this regression, the intercept is 91.697, which means that — all else being constant — when the homicide rate is 0, 91.697 individuals will be executed annually. The coefficient for homicide rate is -8.504, which means that — all else being held constant — a one-unit (homicide per 100,000 individuals) increase in homicide rate would be associated with a 8.504-unit (persons) decrease in number of executions. This relationship is  statistically significant, as the p-value is well below 0.05. Therefore, I can reject the null hypothesis that homicide rate is not correlated with number of executions. That said, these results should not be interpreted causally, as this regression does not take any or all possible confounding variables into account. 
+According to this regression, the intercept is 91.697, which means that—all else being constant—when the homicide rate is zero, 91.697 individuals will be executed annually. The coefficient for homicide rate is -8.504, which means that—all else being held constant—a one-unit (homicide per 100,000 individuals) increase in homicide rate would be associated with a 8.504-unit (persons) decrease in number of executions. This relationship is  statistically significant, as the p-value is well below 0.05. Therefore, I can reject the null hypothesis that homicide rate is not correlated with number of executions. That said, these results should not be interpreted causally, as this regression does not take any or all possible confounding variables into account. This analysis disproves Hypothesis 2.
 
 ***Testing Hypothesis 3***
 ```{r}
@@ -276,9 +272,12 @@ The outputs of this multiple regression are particularly interesting when analyz
 
 ## Further/Secondary Analysis
 
-For a bit of secondary analysis, I decided to investigate potential factors or conditions that impact the level of public support for capital punishment. First, to explore the relationship between the homicide rate and public support for the death penalty, I ran a regression using "Percent_Support" as the response variable and "Homicide_Rate" as the explanatory variable, and plotted these two variables on a scatter plot with a smoothed trend line. 
+Though not directly related to my research question, I was interested in exploring potential causes of public support for capital punishment. Specifically, I investigated whether the homicide rate or the rate of financial dissatisfaction impact the level of public support for capital punishment. 
+
+First, I ran a bivariate linear regression treating homicide rate (`Homicide_Rate`) as the explanatory variable and level of public support for the death penalty (`Percent_Support`) as the response variable. Then, I ran a regression using level of financial dissatifaction (`Fin_Dissatisfaction`) as the explanatory variable and level of public support for the death penalty (`Percent_Support`) as the response variable. I also visually plotted each of these relationships on scatterplots with smoothed trend lines. The outputs of these regressions and their respective interpretations are below.
 
 
+***Homicide Rate***
 ```{r}
 varnames5 <- c("(Intercept)" = "Intercept",
                "Homicide_Rate" = "Homicide Rate")
@@ -302,11 +301,10 @@ support_plot_1 <- ggplot(data = deathpenalty,
 
 support_plot_1
 ```
-According to this regression, the intercept is 56.884, which means that — all else being constant — when the homicide rate is 0,  public support for capital punishment is 56.884%. The coefficient for homicide rate is 1.311, which means that — all else being held constant — for each unit (FIGURE OUT UNIT) the homicide rate increases, public support for capital punishment increases by 1.311 units (percentage points). This relationship is statistically significant, as the p-value is under 0.05. Therefore, I am able to reject the null hypothesis that the homicide rate is not correlated with public support for capital punishment. That said, these results should not be interpreted causally, as this regression does not take any or all possible confounding variables into account.
+According to this regression, the intercept is 56.884, which means that—all else being constant—when the homicide rate is zero, public support for capital punishment is 56.884%. The coefficient for homicide rate is 1.311, which means that—all else being held constant—a one-unit (homicide per 100,000 individuals) increase in the homicide rate is associated with a 1.311-unit (percentage point) increase in public support for capital punishment. This relationship is statistically significant, as the p-value is under 0.05. Therefore, I am able to reject the null hypothesis that the homicide rate has no correlation to public support for capital punishment. That said, these results should not be interpreted causally, as this regression does not take any or all possible confounding variables into account.
 
 
-Then, to explore the relationship between the rate of financial dissatisfaction and public support for the death penalty, I ran a regression using "Percent_Support" as the response variable and "Fin_Dissatisfaction" as the explanatory variable. I also plotted these two variables on a scatter plot with a smoothed trend line. 
-
+***Financial Dissatisfaction***
 ```{r}
 varnames6 <- c("(Intercept)" = "Intercept",
                "Fin_Dissatisfaction" = "Financial Dissatisfaction")
@@ -330,22 +328,9 @@ support_plot_2 <- ggplot(data = deathpenalty,
 
 support_plot_2
 ```
-According to this regression, the intercept is 61.167, which means that — all else being constant — when the rate of financial dissatisfaction rate is 0,  public support for capital punishment is 61.167%. The coefficient for financial dissatisfaction is 0.223, which means that — all else being held constant — for each unit (percentage point) that financial dissatisfaction increases, public support for capital punishment increases by 0.223 units (percentage points). However, this relationship is NOT statistically significant, as the p-value is well above 0.05. Therefore, I fail to reject the null hypothesis that financial dissatisfaction has no correlation/relationship to the level of public support for capital punishment. Additionally, I cannot infer causality from this analysis, as this regression does not hold any or all potential confounding variables constant.
+According to this regression, the intercept is 61.167, which means that—all else being constant—when the rate of financial dissatisfaction rate is 0,  public support for capital punishment is 61.167%. The coefficient for financial dissatisfaction is 0.223, which means that — all else being held constant — for each unit (percentage point) that financial dissatisfaction increases, public support for capital punishment increases by 0.223 units (percentage points). However, this relationship is NOT statistically significant, as the p-value is well above 0.05. Therefore, I fail to reject the null hypothesis that financial dissatisfaction has no correlation/relationship to the level of public support for capital punishment. Additionally, I cannot infer causality from this analysis, as this regression does not hold any or all potential confounding variables constant.
 
 
-Finally, I ran a multiple regression using Percent_Support as the response variable and "Homicide_Rate" and "Fin_Dissatisfaction" as the explanatory variables.
-
-```{r}
-lm_support_3 <- lm(Percent_Support ~ Homicide_Rate + Fin_Dissatisfaction,
-              data = deathpenalty) 
-
-summary(lm_support_3)
-modelsummary::modelsummary(list(Regression = lm_support_3),
-                           statistic = c("s.e. = {std.error}",
-                                         "p = {p.value}"),
-                           gof_map = c("nobs", "r.squared", "adj.r.squared"))
-```
-In this multiple regression, the relationship between the homicide rate and public support remains statistically significant and the relationship between the rate of financial dissatisfaction and public support remains not statistically significant. However, compared to the __ regressions, the coefficient and the standard error for homicide rate increased slightly, and its p-value decreased. ___
 
 ## Conclusion
 Ultimately, my analyses provide some support for H1 (). The bivariate regression returned findings that aligned with my hypothesis but were not statistically signficant. However, a multiple regression that __ homicide rate and number of exonerations, returned findings that aligned with my hypothesis and were statistically significant. From this, I can conclude that ___. However, from this alone I cannot infer causality, as .....
