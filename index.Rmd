@@ -69,7 +69,7 @@ When compiling my dataset, I included a few variables that I ultimately did not 
 
 **Research Design Classification**
 
-My research design uses observational data and can be best classified as a correlational study.
+My research design uses observational data and is best classified as a correlational study.
 
 
 **Basic Data Visualizations**
